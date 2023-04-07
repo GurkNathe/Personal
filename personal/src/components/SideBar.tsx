@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 import Button from '@mui/material/Button';
+import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 
 import HouseRoundedIcon from '@mui/icons-material/HouseRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
@@ -15,6 +15,8 @@ import MessageIcon from '@mui/icons-material/Message';
 import { Link } from "react-router-dom";
 
 import "../css/sidebar.css";
+
+// TODO: Add links to GitHub, LinkedIn, etc. at bottom of bar
 
 export default function SideBar() {
     const [open, toggleDrawer] = useState(false);
@@ -37,18 +39,18 @@ export default function SideBar() {
             <Button onClick={() => toggleDrawer(true)}>
                 <MenuRoundedIcon className="button-icon"/>
             </Button>
-            <SwipeableDrawer
-                className="drawer"
+            <Drawer
                 anchor="right"
                 open={open}
-                onOpen={() => toggleDrawer(true)}
                 onClose={() => toggleDrawer(false)}
             >
-                <List>
-                    {barItem("Home", <HouseRoundedIcon/>, "/", toggleDrawer)}
-                    {barItem("Blog", <MessageIcon/>, "/blog", toggleDrawer)}
-                </List>
-            </SwipeableDrawer>
+                <div className='drawer'>
+                    <List>
+                        {barItem("Home", <HouseRoundedIcon/>, "/", toggleDrawer)}
+                        {barItem("Blog", <MessageIcon/>, "/blog", toggleDrawer)}
+                    </List>
+                </div>
+            </Drawer>
         </div>
     );
 }

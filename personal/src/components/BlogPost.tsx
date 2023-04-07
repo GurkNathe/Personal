@@ -5,6 +5,9 @@ import remarkGfm from "remark-gfm";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Chip from "@mui/material/Chip";
+import Grid from "@mui/material/Grid";
+
+import { Link } from "react-router-dom";
 
 import "../css/blog-post.css";
 
@@ -12,32 +15,42 @@ export interface BlogItem {
     title: string;
     thumbnailUrl: string;
     summary: string;
-    content: string;
+    contentUrl: string;
     tags: string[];
     timestamp: Date;
 }
 
-export default function BlogPost({ title, thumbnailUrl, summary, content, tags, timestamp} : BlogItem) {
+export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tags, timestamp} : BlogItem) {
     return (
         <Box className="post">
-            <Card variant="outlined">
-                <div style={{display: "flex"}}>
-                    <img 
-                        className="image"
-                        src={thumbnailUrl} 
-                        alt={title} 
-                    />
-                    <div style={{padding: "10px"}}>
-                        <h2>{title}</h2>
-                        <ReactMarkdown children={summary} remarkPlugins={[remarkGfm]}/>
-                    </div>
-                </div>
-                <div style={{margin: "10px"}}>
-                    {tags.map((tag) => (
-                        <Chip label={tag} variant="outlined" className="chip" key={tag}/>
-                    ))}
-                </div>
-            </Card>
+            <Link to={contentUrl} className="link">
+                <Card variant="outlined">
+                    <Grid container>
+                        <Grid container item className="top">
+                            <Grid item xs={4} className="image-cell">
+                                <img 
+                                    src={thumbnailUrl} 
+                                    alt={title} 
+                                />
+                            </Grid>
+                            <Grid container item xs={8} spacing={2} className="text-cell">
+                                <Grid item>
+                                    <span className="title">{title}</span>
+                                    <ReactMarkdown className="summary" children={summary} remarkPlugins={[remarkGfm]}/>
+                                </Grid>
+                                <Grid item>
+                                    <span className="publish">Published: {timestamp.toDateString()}</span>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item className="chip-cell">
+                            {tags.map((tag) => (
+                                <Chip label={tag} variant="outlined" className="chip" key={tag}/>
+                                ))}
+                        </Grid>
+                    </Grid>
+                </Card>
+            </Link>
         </Box>
     );
 }

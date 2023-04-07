@@ -1,13 +1,21 @@
-.button-icon {
-    color: #fff;
-}
-
-.link {
-    text-decoration: none;
-}
-
 .bar {
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+    margin: 1vh 1vw 0 0;
 }
+
+.button-icon {
+    color: #383838;
+}
+
+.drawer {
+    height: 100%;
+    background: radial-gradient(#fff7cc, #cb32a5);
+}
+
+.link {
+    text-decoration: none;
+    color: #000;
+}
+
