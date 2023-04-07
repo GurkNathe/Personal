@@ -1,0 +1,7 @@
+.root {
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    background-Image: radial-gradient(circle at top left, #fff7cc, #cb32a5);
+}

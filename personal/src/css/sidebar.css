@@ -1,0 +1,13 @@
+.button-icon {
+    color: #fff;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
