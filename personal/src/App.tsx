@@ -1,16 +1,27 @@
-import BlogList from "./components/BlogList";
-import SideBar from "./components/SideBar";
-import Home from "./components/Home";
 import {
     createBrowserRouter,
     createRoutesFromElements,
-    Route,
     Outlet,
+    Route,
     RouterProvider,
 } from "react-router-dom";
+
+import BlogList from "./components/BlogList";
+import Home from "./components/Home";
+import SideBar from "./components/SideBar";
+
 import "./css/root.css";
 
 export default function App() {
+    const Root = () => {
+        return (
+            <div className="root">
+                <Outlet />
+                <SideBar />
+            </div>
+        );
+    };
+
     const router = createBrowserRouter(
         createRoutesFromElements(
             <Route path="/" element={<Root />}>
@@ -22,12 +33,3 @@ export default function App() {
 
     return <RouterProvider router={router} />;
 }
-
-const Root = () => {
-    return (
-        <div className="root">
-            <Outlet />
-            <SideBar />
-        </div>
-    );
-};

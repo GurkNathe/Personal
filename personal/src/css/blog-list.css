@@ -1,7 +1,20 @@
 .list {
     width: 100vw;
+    height: 100vh;
     margin: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.search {
+    width: 90%;
+    margin: 10px;
+    border-radius: 5px;
+    background: #fff;
+    z-index: 15;
+}
+
+.pages {
+    padding: 10px;
 }
