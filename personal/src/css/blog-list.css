@@ -18,3 +18,10 @@
 .pages {
     padding: 10px;
 }
+
+.page-size {
+    background: #fff;
+    border-radius: 5px;
+    width: 120px;
+    min-width: 120px;
+}

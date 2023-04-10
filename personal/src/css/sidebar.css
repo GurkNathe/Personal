@@ -1,3 +1,7 @@
+:root {
+    --bar-color: #181818;
+}
+
 .bar {
     display: flex;
     align-items: flex-start;
@@ -6,16 +10,26 @@
 }
 
 .button-icon {
-    color: #383838;
+    color: var(--bar-color);
 }
 
 .drawer {
     height: 100%;
-    background: radial-gradient(#fff7cc, #cb32a5);
+    background: var(--bar-color);
 }
 
 .link {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
 }
 
+.links {
+    background: var(--bar-color);
+    color: #ffffff;
+}
+
+.links-grid {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}

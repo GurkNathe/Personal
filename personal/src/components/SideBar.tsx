@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
+import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import MuiLink from '@mui/material/Link';
 
 import HouseRoundedIcon from '@mui/icons-material/HouseRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
@@ -15,8 +17,6 @@ import MessageIcon from '@mui/icons-material/Message';
 import { Link } from "react-router-dom";
 
 import "../css/sidebar.css";
-
-// TODO: Add links to GitHub, LinkedIn, etc. at bottom of bar
 
 export default function SideBar() {
     const [open, toggleDrawer] = useState(false);
@@ -46,9 +46,28 @@ export default function SideBar() {
             >
                 <div className='drawer'>
                     <List>
-                        {barItem("Home", <HouseRoundedIcon/>, "/", toggleDrawer)}
-                        {barItem("Blog", <MessageIcon/>, "/blog", toggleDrawer)}
+                        {barItem("Home", <HouseRoundedIcon htmlColor="#fff"/>, "/", toggleDrawer)}
+                        {barItem("Blog", <MessageIcon htmlColor="#fff"/>, "/blog", toggleDrawer)}
                     </List>
+                </div>
+                <div className="links">
+                    <Grid container className="links-grid">
+                        <Grid item xs={5}>
+                            <MuiLink href="https://github.com/GurkNathe/" color="inherit">
+                                GitHub
+                            </MuiLink>
+                        </Grid>
+                        <Grid item xs={1.5}>
+                            <span>
+                                {"•"}
+                            </span>
+                        </Grid>
+                        <Grid item xs={5}>
+                            <MuiLink href="https://www.linkedin.com/in/ethan-krug-5a3088171" color="inherit">
+                                LinkedIn
+                            </MuiLink>
+                        </Grid>
+                    </Grid>
                 </div>
             </Drawer>
         </div>
