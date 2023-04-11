@@ -19,6 +19,11 @@ const Background = () => {
         "/resources/temple-peak.jpg",
         "/resources/future-city.jpg",
         "/resources/fjords.jpg",
+        "/resources/mesa.jpg",
+        "/resources/cliffside.jpg",
+        "/resources/fantasy-islands.jpg",
+        "/resources/shrub-river.jpg",
+        "/resources/plateau-river.jpg",
     ]
 
     const bg = useLoader(TextureLoader, bg_array[Math.floor(Math.random() * bg_array.length)]);
@@ -29,14 +34,14 @@ const Background = () => {
         sphere_mesh.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.05;
         sphere_mesh.current.rotation.y = clock.getElapsedTime() * 0.1;
     })
-
+    // TODO: Change size of text based off of screen width
     return(
         <>
             <ambientLight intensity={1} />
             <mesh ref={sphere_mesh}>
-                <sphereGeometry args={[6, 32, 32]}/>
+                <sphereGeometry args={[10, 32, 32]}/>
                 <meshStandardMaterial map={bg} side={THREE.BackSide}/>
-                <mesh position={[-3, -0.5, -4]}>
+                <mesh position={[-3, -0.5, -5]}>
                     <Text3D font={"/resources/Inter_Regular.json"}>
                         Ethan Krug
                         <meshStandardMaterial color="#181818"/>

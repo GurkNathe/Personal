@@ -5,4 +5,5 @@
     justify-content: center;
     background-Image: radial-gradient(circle at top left, #fff7cc, #cb32a5);
     overflow-y: auto;
+    flex-direction: row;
 }

@@ -5,9 +5,13 @@
 .bar {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-end;
     padding-top: 10px;
     background-color: var(--bar-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
 }
 
 .button-icon {

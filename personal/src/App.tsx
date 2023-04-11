@@ -16,8 +16,8 @@ export default function App() {
     const Root = () => {
         return (
             <div className="root">
-                <SideBar />
-                <Outlet />
+                <SideBar/>
+                <Outlet/>
             </div>
         );
     };
