@@ -40,7 +40,7 @@ export default function SideBar() {
                 <MenuRoundedIcon className="button-icon"/>
             </Button>
             <Drawer
-                anchor="right"
+                anchor="left"
                 open={open}
                 onClose={() => toggleDrawer(false)}
             >

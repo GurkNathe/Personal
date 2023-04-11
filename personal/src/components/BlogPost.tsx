@@ -22,7 +22,7 @@ export interface BlogItem {
 
 export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tags, timestamp} : BlogItem) {
     return (
-        <Box className="post">
+        <Box className="post" component="div">
             <Link to={contentUrl} className="link">
                 <Card variant="outlined">
                     <Grid container>
