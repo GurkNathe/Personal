@@ -1,127 +1,37 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
-import FormControl from "@mui/material/FormControl";
 import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Pagination from "@mui/material/Pagination";
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import styled from "@mui/material/styles/styled";
+import { SelectChangeEvent } from "@mui/material/Select";
 import StyledEngineProvider from "@mui/material/StyledEngineProvider";
-import TextField from "@mui/material/TextField";
 
-import BlogPost, { BlogItem } from "./BlogPost";
+import BlogPost, { LoadedArticle } from "./BlogPost";
+
+import { 
+    CustomProgress ,
+    PageSizeSelect, 
+    SearchField, 
+    SelectForm 
+} from "./CustomComponent";
 
 import "../css/blog-list.css";
 
 //TODO: Functioning search bar
-//TODO: Fetch data
 
-// Testing data
-const data = [
-    {
-        title: "A* pathfinding algorithm",
-        thumbnailUrl: "https://github.com/GurkNathe/Pathfinding-Algorithms/blob/main/resources/Best-First-Search.gif?raw=true",
-        summary: `Discusses the A\* pathfinding algorithm when applied to a grid-base graph. It then compares the performance of the A\* algorithm with other popular pathfinding algorithms, then details the benefits and compromises made for the algorithms.`,
-        contentUrl: "/",
-        tags: ["Algorithms", "A*", "Graph Search", "Pathfinding", "Best-First-Search"],
-        timestamp: new Date(),
-    },
-    {
-        title: "A* pathfinding algorithm",
-        thumbnailUrl: "https://github.com/GurkNathe/Pathfinding-Algorithms/blob/main/resources/astar_maze.gif?raw=true",
-        summary: `Discusses the A\* pathfinding algorithm when applied to a grid-base graph. It then compares the performance of the A\* algorithm with other popular pathfinding algorithms, then details the benefits and compromises made for the algorithms.`,
-        contentUrl: "/",
-        tags: ["Algorithms", "A*", "Graph Search", "Pathfinding", "Best-First-Search"],
-        timestamp: new Date(),
-    },
-    {
-        title: "A* pathfinding algorithm",
-        thumbnailUrl: "https://github.com/GurkNathe/Pathfinding-Algorithms/blob/main/resources/Best-First-Search.gif?raw=true",
-        summary: `Discusses the A\* pathfinding algorithm when applied to a grid-base graph. It then compares the performance of the A\* algorithm with other popular pathfinding algorithms, then details the benefits and compromises made for the algorithms.`,
-        contentUrl: "/",
-        tags: ["Algorithms", "A*", "Graph Search", "Pathfinding", "Best-First-Search"],
-        timestamp: new Date(),
-    },
-    {
-        title: "A* pathfinding algorithm",
-        thumbnailUrl: "https://github.com/GurkNathe/Pathfinding-Algorithms/blob/main/resources/astar_maze.gif?raw=true",
-        summary: `Discusses the A\* pathfinding algorithm when applied to a grid-base graph. It then compares the performance of the A\* algorithm with other popular pathfinding algorithms, then details the benefits and compromises made for the algorithms.`,
-        contentUrl: "/",
-        tags: ["Algorithms", "A*", "Graph Search", "Pathfinding", "Best-First-Search"],
-        timestamp: new Date(),
-    },
-    {
-        title: "A* pathfinding algorithm",
-        thumbnailUrl: "https://github.com/GurkNathe/Pathfinding-Algorithms/blob/main/resources/Best-First-Search.gif?raw=true",
-        summary: `Discusses the A\* pathfinding algorithm when applied to a grid-base graph. It then compares the performance of the A\* algorithm with other popular pathfinding algorithms, then details the benefits and compromises made for the algorithms.`,
-        contentUrl: "/",
-        tags: ["Algorithms", "A*", "Graph Search", "Pathfinding", "Best-First-Search"],
-        timestamp: new Date(),
-    },
-    {
-        title: "A* pathfinding algorithm",
-        thumbnailUrl: "https://github.com/GurkNathe/Pathfinding-Algorithms/blob/main/resources/astar_maze.gif?raw=true",
-        summary: `Discusses the A\* pathfinding algorithm when applied to a grid-base graph. It then compares the performance of the A\* algorithm with other popular pathfinding algorithms, then details the benefits and compromises made for the algorithms.`,
-        contentUrl: "/",
-        tags: ["Algorithms", "A*", "Graph Search", "Pathfinding", "Best-First-Search"],
-        timestamp: new Date(),
-    },
-    {
-        title: "A* pathfinding algorithm",
-        thumbnailUrl: "https://github.com/GurkNathe/Pathfinding-Algorithms/blob/main/resources/Best-First-Search.gif?raw=true",
-        summary: `Discusses the A\* pathfinding algorithm when applied to a grid-base graph. It then compares the performance of the A\* algorithm with other popular pathfinding algorithms, then details the benefits and compromises made for the algorithms.`,
-        contentUrl: "/",
-        tags: ["Algorithms", "A*", "Graph Search", "Pathfinding", "Best-First-Search"],
-        timestamp: new Date(),
-    },
-    {
-        title: "A* pathfinding algorithm",
-        thumbnailUrl: "https://github.com/GurkNathe/Pathfinding-Algorithms/blob/main/resources/astar_maze.gif?raw=true",
-        summary: `Discusses the A\* pathfinding algorithm when applied to a grid-base graph. It then compares the performance of the A\* algorithm with other popular pathfinding algorithms, then details the benefits and compromises made for the algorithms.`,
-        contentUrl: "/",
-        tags: ["Algorithms", "A*", "Graph Search", "Pathfinding", "Best-First-Search"],
-        timestamp: new Date(),
-    },
-];
-
-const PageSizeSelect = styled(Select)({
-    '.MuiOutlinedInput-notchedOutline': {
-        borderColor: 'black',
-    },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-        borderColor: 'black',
-    },
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: 'black',
-    }
-});
-
-const SearchField = styled(TextField)({
-    "& label.Mui-focused": {
-        color: "black"
-    },
-    "& .MuiOutlinedInput-root": {
-        "&.Mui-focused fieldset": {
-            borderColor: "black"
-        }
-    }
-});
-
-const SelectForm = styled(FormControl)({
-    "& label.Mui-focused": {
-        color: "black"
-    },
-    "& .MuiOutlinedInput-root": {
-        "&.Mui-focused fieldset": {
-            borderColor: "black"
-        }
-    }
-});
+export const articleLoader = async () => {
+    const res = await fetch("https://raw.githubusercontent.com/GurkNathe/Personal/main/articles/articles.json");
+    const articles = res.json();
+    return articles;
+};
 
 export default function BlogList() {
-    const [posts, setPosts] = useState<BlogItem[]>([]);
+    const data = useLoaderData() as LoadedArticle[];
+
+    const [posts, setPosts] = useState<LoadedArticle[]>([]);
     const [page, setPage] = useState<number>(0);
     const [searchValue, setSearchValue] = useState<string>("");
     const [pageSize, setPageSize] = useState<number>(5);
@@ -172,49 +82,57 @@ export default function BlogList() {
                     }}
                 />
             </StyledEngineProvider>
-            {pageSize < data.length ?
-                <Pagination
-                    className="pages"
-                    page={page + 1}
-                    count={Math.ceil(data.length / pageSize)}
-                    onChange={(_, value) => onPageChange(value - 1)}
-                /> :
-                <div style={{ padding: "10px" }}></div>
-            }
-            {posts.map((datum, index) => (
-                <BlogPost
-                    key={index}
-                    title={datum.title}
-                    thumbnailUrl={datum.thumbnailUrl}
-                    summary={datum.summary}
-                    contentUrl={datum.contentUrl}
-                    tags={datum.tags}
-                    timestamp={datum.timestamp}
-                />
-            ))}
-            <SelectForm className="page-size" size="small">
-                <InputLabel>Page Size</InputLabel>
-                <PageSizeSelect
-                    value={String(pageSize)}
-                    label="Age"
-                    onChange={(event) => changePageSize(event)}
-                >
-                    <MenuItem value={5}>Five</MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={15}>Fifteen</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                </PageSizeSelect>
-            </SelectForm>
-            {pageSize < data.length ?
-                <Pagination
-                    className="pages"
-                    page={page + 1}
-                    count={Math.ceil(data.length / pageSize)}
-                    onChange={(_, value) => onPageChange(value - 1)}
-                /> :
-                <div style={{ padding: "10px" }}></div>
-            }
+            <Suspense 
+                fallback={
+                    <div style={{display:"flex"}}>
+                        <CustomProgress/>
+                    </div>
+                }
+            >
+                {pageSize < data.length ?
+                    <Pagination
+                        className="pages"
+                        page={page + 1}
+                        count={Math.ceil(data.length / pageSize)}
+                        onChange={(_, value) => onPageChange(value - 1)}
+                    /> :
+                    <div style={{ padding: "10px" }}></div>
+                }
+                {posts.map((datum, index) => (
+                    <BlogPost
+                        key={index}
+                        title={datum.title}
+                        thumbnailUrl={datum.thumbnailUrl}
+                        summary={datum.summary}
+                        contentUrl={datum.contentUrl}
+                        tags={datum.tags}
+                        timestamp={datum.timestamp}
+                    />
+                ))}
+                <SelectForm className="page-size" size="small">
+                    <InputLabel>Page Size</InputLabel>
+                    <PageSizeSelect
+                        value={String(pageSize)}
+                        label="Age"
+                        onChange={(event) => changePageSize(event)}
+                    >
+                        <MenuItem value={5}>Five</MenuItem>
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={15}>Fifteen</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                    </PageSizeSelect>
+                </SelectForm>
+                {pageSize < data.length ?
+                    <Pagination
+                        className="pages"
+                        page={page + 1}
+                        count={Math.ceil(data.length / pageSize)}
+                        onChange={(_, value) => onPageChange(value - 1)}
+                    /> :
+                    <div style={{ padding: "10px" }}></div>
+                }
+            </Suspense>
         </div>
     );
 }

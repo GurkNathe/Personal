@@ -1,3 +1,9 @@
 .home {
     width: 100vw;
 }
+
+.loader-container {
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+}

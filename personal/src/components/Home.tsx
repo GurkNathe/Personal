@@ -5,6 +5,8 @@ import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Text3D } from "@react-three/drei";
 import { Mesh, TextureLoader } from "three";
 
+import { CustomProgress } from "./CustomComponent";
+
 import "../css/home.css";
 
 const Background = () => {
@@ -34,14 +36,16 @@ const Background = () => {
         sphere_mesh.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.05;
         sphere_mesh.current.rotation.y = clock.getElapsedTime() * 0.1;
     })
-    // TODO: Change size of text based off of screen width
+
+    let size = -8.3 * Math.pow(Math.log((window.innerWidth / 100) - 2), -1);
+
     return(
         <>
             <ambientLight intensity={1} />
             <mesh ref={sphere_mesh}>
-                <sphereGeometry args={[10, 32, 32]}/>
+                <sphereGeometry args={[32, 32, 32]}/>
                 <meshStandardMaterial map={bg} side={THREE.BackSide}/>
-                <mesh position={[-3, -0.5, -5]}>
+                <mesh position={[-3, -0.5, size]}>
                     <Text3D font={"/resources/Inter_Regular.json"}>
                         Ethan Krug
                         <meshStandardMaterial color="#181818"/>
@@ -55,13 +59,19 @@ const Background = () => {
 
 export default function Home() {
     return(
-        <Canvas
-            camera={{ fov: 70, near: 0.01, far: 100, position: [0, 0, 1] }}
+        <Suspense 
+            fallback={
+                <div className="loader-container">
+                    <CustomProgress/>
+                </div>
+            }
         >
-            <OrbitControls enableZoom={false} rotateSpeed={0.3}/>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Background/>
-            </Suspense>
-        </Canvas>
+            <Canvas
+                camera={{ fov: 70, near: 0.01, far: 100, position: [0, 0, 1] }}
+            >
+                <OrbitControls enableZoom={false} rotateSpeed={0.3}/>
+                    <Background/>
+            </Canvas>
+        </Suspense>
     );
 }

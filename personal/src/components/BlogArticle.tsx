@@ -1,3 +1,3 @@
 export default function BlogArticle() {
-    return <div></div>;
+    return <div>Hello fish</div>;
 }

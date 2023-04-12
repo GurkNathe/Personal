@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import BlogArticle from "./components/BlogArticle";
-import BlogList from "./components/BlogList";
+import BlogList, { articleLoader } from "./components/BlogList";
 import Home from "./components/Home";
 import SideBar from "./components/SideBar";
 
@@ -38,8 +38,8 @@ export default function App() {
         createRoutesFromElements(
             <Route path="/" element={<Root />} >
                 <Route index element={<Home />} errorElement={<ErrorBoundaryHome/>}/>
-                <Route path="/blog" element={<BlogList />} />
-                <Route path="/blog:contentUrl" element={<BlogArticle />} />
+                <Route path="/blog" element={<BlogList />} loader={articleLoader}/>
+                <Route path="/blog/:contentUrl" element={<BlogArticle />} />
             </Route>
         )
     );
