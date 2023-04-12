@@ -3,7 +3,7 @@
         "title": "A* pathfinding algorithm",
         "thumbnailUrl": "https://github.com/GurkNathe/Pathfinding-Algorithms/blob/main/resources/Best-First-Search.gif?raw=true",
         "summary": "Discusses the A* pathfinding algorithm when applied to a grid-base graph. It then compares the performance of the A* algorithm with other popular pathfinding algorithms, then details the benefits and compromises made for the algorithms.",
-        "contentUrl": "15",
+        "contentUrl": "123456",
         "tags": ["Algorithms", "A*", "Graph Search", "Pathfinding", "Best-First-Search"],
         "timestamp": "2023-04-12T18:31:25.412Z"
     },
