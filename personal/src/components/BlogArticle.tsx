@@ -1,3 +1,8 @@
+import { useParams } from "react-router-dom";
+
+
 export default function BlogArticle() {
-    return <div>Hello fish</div>;
+    let { contentUrl } = useParams();
+
+    return <div>Hello fish {contentUrl}</div>;
 }
