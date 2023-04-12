@@ -59,7 +59,7 @@ export default function Home() {
             camera={{ fov: 70, near: 0.01, far: 100, position: [0, 0, 1] }}
         >
             <OrbitControls enableZoom={false} rotateSpeed={0.3}/>
-            <Suspense fallback={null}>
+            <Suspense fallback={<div>Loading...</div>}>
                 <Background/>
             </Suspense>
         </Canvas>
