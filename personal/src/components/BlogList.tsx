@@ -52,7 +52,7 @@ const searchMaker = async (data: LoadedArticle[]) => {
         await insert(search, {
             ...value,
             tags: value.tags.join(","),
-            timestamp: value.timestamp + (new Date(value.timestamp)).toDateString()
+            timestamp: value.timestamp + " " + (new Date(value.timestamp)).toDateString()
         })
     });
 
@@ -62,6 +62,7 @@ const searchMaker = async (data: LoadedArticle[]) => {
 export default function BlogList() {
     const data = useLoaderData() as LoadedArticle[];
     const [searchDB, setSearch] = useState<Orama<{Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore;}>>({} as Orama<{Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore;}>);
+    const [clayData, setClayData] = useState(data);
     const [posts, setPosts] = useState<LoadedArticle[]>([]);
     const [page, setPage] = useState<number>(0);
     const [searchValue, setSearchValue] = useState<string>("");
@@ -73,27 +74,41 @@ export default function BlogList() {
         }).catch((err) => {
             console.error(err);
         });
-        setPosts(data.slice(0, pageSize));
+        setPosts(clayData.slice(0, pageSize));
     }, []);
 
     const onPageChange = (page: number) => {
-        setPosts(data.slice(pageSize * page, pageSize + (pageSize * page)));
+        setPosts(clayData.slice(pageSize * page, pageSize + (pageSize * page)));
         setPage(page);
     };
-    console.log(searchDB)
-    const onSearch = async () => {
-        const result = await search(searchDB, {
-            term: searchValue,
-            properties: ["title", "summary", "tags", "timestamp"],
-        })
 
-        console.log(result);
-        // filter posts by tags, title, summary, and publish date
+    const onSearch = async (query: string) => {
+        setSearchValue(query);
+        if (query === "") {
+            setClayData(data);
+            setPosts(data.slice(0, pageSize));
+        } else {
+            const result = await search(searchDB, {
+                term: query,
+                properties: ["title", "summary", "tags", "timestamp"],
+            })
+
+            if (result.count === 0) {
+                setClayData([]);
+                setPosts([]);
+            } else {
+                setClayData(data.filter((datum) => {
+                    return result.hits.filter((hit) => {
+                        return datum.contentUrl === hit.document.contentUrl
+                    })
+                }));
+            }
+        }
     };
 
     const changePageSize = (event: SelectChangeEvent<unknown>) => {
         let pS: number = Number(event.target.value);
-        setPosts(data.slice(0, pS));
+        setPosts(clayData.slice(0, pS));
         setPageSize(pS);
         if (page > 0) {
             setPage(0);
@@ -109,12 +124,7 @@ export default function BlogList() {
                     placeholder="Search..."
                     autoFocus
                     value={searchValue}
-                    onChange={(event) => setSearchValue(event.target.value)}
-                    onKeyDown={(event) => {
-                        if (event.key === "Enter") {
-                            onSearch();
-                        }
-                    }}
+                    onChange={(event) => onSearch(event.target.value)}
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
@@ -131,48 +141,53 @@ export default function BlogList() {
                     </div>
                 }
             >
-                {pageSize < data.length ?
-                    <Pagination
-                        className="pages"
-                        page={page + 1}
-                        count={Math.ceil(data.length / pageSize)}
-                        onChange={(_, value) => onPageChange(value - 1)}
-                    /> :
-                    <div style={{ padding: "10px" }}></div>
-                }
-                {posts.map((datum, index) => (
-                    <BlogPost
-                        key={index}
-                        title={datum.title}
-                        thumbnailUrl={datum.thumbnailUrl}
-                        summary={datum.summary}
-                        contentUrl={datum.contentUrl}
-                        tags={datum.tags}
-                        timestamp={datum.timestamp}
-                    />
-                ))}
-                <SelectForm className="page-size" size="small">
-                    <InputLabel>Page Size</InputLabel>
-                    <PageSizeSelect
-                        value={String(pageSize)}
-                        label="Age"
-                        onChange={(event) => changePageSize(event)}
-                    >
-                        <MenuItem value={5}>Five</MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={15}>Fifteen</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </PageSizeSelect>
-                </SelectForm>
-                {pageSize < data.length ?
-                    <Pagination
-                        className="pages"
-                        page={page + 1}
-                        count={Math.ceil(data.length / pageSize)}
-                        onChange={(_, value) => onPageChange(value - 1)}
-                    /> :
-                    <div style={{ padding: "10px" }}></div>
+                {posts.length > 0 ? 
+                    <>
+                        {pageSize < clayData.length ?
+                            <Pagination
+                                className="pages"
+                                page={page + 1}
+                                count={Math.ceil(clayData.length / pageSize)}
+                                onChange={(_, value) => onPageChange(value - 1)}
+                            /> :
+                            <div style={{ padding: "10px" }}></div>
+                        }
+                        {posts.map((datum, index) => (
+                            <BlogPost
+                                key={index}
+                                title={datum.title}
+                                thumbnailUrl={datum.thumbnailUrl}
+                                summary={datum.summary}
+                                contentUrl={datum.contentUrl}
+                                tags={datum.tags}
+                                timestamp={datum.timestamp}
+                            />
+                        ))}
+                        <SelectForm className="page-size" size="small">
+                            <InputLabel>Page Size</InputLabel>
+                            <PageSizeSelect
+                                value={String(pageSize)}
+                                label="Age"
+                                onChange={(event) => changePageSize(event)}
+                            >
+                                <MenuItem value={5}>Five</MenuItem>
+                                <MenuItem value={10}>Ten</MenuItem>
+                                <MenuItem value={15}>Fifteen</MenuItem>
+                                <MenuItem value={20}>Twenty</MenuItem>
+                                <MenuItem value={30}>Thirty</MenuItem>
+                            </PageSizeSelect>
+                        </SelectForm>
+                        {pageSize < clayData.length ?
+                            <Pagination
+                                className="pages"
+                                page={page + 1}
+                                count={Math.ceil(clayData.length / pageSize)}
+                                onChange={(_, value) => onPageChange(value - 1)}
+                            /> :
+                            <div style={{ padding: "10px" }}></div>
+                        }
+                    </> : 
+                    <div>No available posts.</div>
                 }
             </Suspense>
         </div>
