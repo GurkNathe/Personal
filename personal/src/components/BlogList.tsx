@@ -92,7 +92,7 @@ export default function BlogList() {
                 term: query,
                 properties: ["title", "summary", "tags", "timestamp"],
             })
-
+            console.log(result);
             if (result.count === 0) {
                 setClayData([]);
                 setPosts([]);
