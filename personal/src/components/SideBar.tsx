@@ -13,6 +13,7 @@ import MuiLink from '@mui/material/Link';
 import HouseRoundedIcon from '@mui/icons-material/HouseRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import MessageIcon from '@mui/icons-material/Message';
+import PersonIcon from '@mui/icons-material/Person';
 
 import { Link } from "react-router-dom";
 
@@ -47,6 +48,7 @@ export default function SideBar() {
                 <div className='drawer'>
                     <List>
                         {barItem("Home", <HouseRoundedIcon htmlColor="#fff"/>, "/", toggleDrawer)}
+                        {barItem("About Me", <PersonIcon htmlColor="#fff"/>, "/about-me", toggleDrawer)}
                         {barItem("Blog", <MessageIcon htmlColor="#fff"/>, "/blog", toggleDrawer)}
                     </List>
                 </div>
