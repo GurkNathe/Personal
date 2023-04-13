@@ -10,6 +10,7 @@ import { SelectChangeEvent } from "@mui/material/Select";
 import StyledEngineProvider from "@mui/material/StyledEngineProvider";
 
 import { create, insert, search, stemmers } from "@orama/orama";
+import { OpaqueDocumentStore, OpaqueIndex, Orama, Schema } from "@orama/orama/dist/types";
 
 import BlogPost, { LoadedArticle } from "./BlogPost";
 
@@ -21,9 +22,6 @@ import {
 } from "./CustomComponent";
 
 import "../css/blog-list.css";
-import { OpaqueDocumentStore, OpaqueIndex, Orama, Schema } from "@orama/orama/dist/types";
-
-//TODO: Functioning search bar
 
 export const articleLoader = async () => {
     const res = await fetch("https://raw.githubusercontent.com/GurkNathe/Personal/main/articles/articles.json");
@@ -81,7 +79,7 @@ export default function BlogList() {
         setPosts(clayData.slice(pageSize * page, pageSize + (pageSize * page)));
         setPage(page);
     };
-
+    
     const onSearch = async (query: string) => {
         setSearchValue(query);
         if (query === "") {
@@ -92,24 +90,29 @@ export default function BlogList() {
                 term: query,
                 properties: ["title", "summary", "tags", "timestamp"],
             })
-            console.log(result);
+
             if (result.count === 0) {
                 setClayData([]);
                 setPosts([]);
             } else {
-                setClayData(data.filter((datum) => {
-                    return result.hits.filter((hit) => {
-                        return datum.contentUrl === hit.document.contentUrl
+                let newData = data.filter((datum) => {
+                    return result.hits.some((hit) => {
+                        return datum.contentUrl === hit.document.contentUrl;
                     })
-                }));
+                });
+
+                setClayData(newData);
+                setPosts(newData.slice(0, pageSize));
             }
         }
     };
 
     const changePageSize = (event: SelectChangeEvent<unknown>) => {
-        let pS: number = Number(event.target.value);
-        setPosts(clayData.slice(0, pS));
-        setPageSize(pS);
+        let pSize: number = Number(event.target.value);
+
+        setPosts(clayData.slice(0, pSize));
+        setPageSize(pSize);
+
         if (page > 0) {
             setPage(0);
         }
@@ -167,7 +170,6 @@ export default function BlogList() {
                             <InputLabel>Page Size</InputLabel>
                             <PageSizeSelect
                                 value={String(pageSize)}
-                                label="Age"
                                 onChange={(event) => changePageSize(event)}
                             >
                                 <MenuItem value={5}>Five</MenuItem>
