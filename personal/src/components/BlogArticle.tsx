@@ -1,7 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+
 import ReactMarkdown from "react-markdown";
 
+import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
 
 import "../css/blog-article.css";
 
@@ -15,10 +18,11 @@ export default function BlogArticle() {
 
     return (
         <div className="page">
-            <ReactMarkdown 
-                className="article" 
-                children={data} 
-                remarkPlugins={[remarkGfm]}
+            <ReactMarkdown
+                className="article"
+                children={data}
+                remarkPlugins={[remarkParse, remarkGfm]}
+                rehypePlugins={[rehypeStringify]}
             />
         </div>
     );
