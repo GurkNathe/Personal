@@ -9,16 +9,19 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { SelectChangeEvent } from "@mui/material/Select";
 import StyledEngineProvider from "@mui/material/StyledEngineProvider";
 
+import { create, insert, search, stemmers } from "@orama/orama";
+
 import BlogPost, { LoadedArticle } from "./BlogPost";
 
-import { 
-    CustomProgress ,
-    PageSizeSelect, 
-    SearchField, 
-    SelectForm 
+import {
+    CustomProgress,
+    PageSizeSelect,
+    SearchField,
+    SelectForm
 } from "./CustomComponent";
 
 import "../css/blog-list.css";
+import { OpaqueDocumentStore, OpaqueIndex, Orama, Schema } from "@orama/orama/dist/types";
 
 //TODO: Functioning search bar
 
@@ -28,15 +31,48 @@ export const articleLoader = async () => {
     return articles;
 };
 
+const searchMaker = async (data: LoadedArticle[]) => {
+    const search = await create({
+        schema: {
+            title: "string",
+            thumbnailUrl: "string",
+            summary: "string",
+            contentUrl: "string",
+            tags: "string",
+            timestamp: "string",
+        },
+        components: {
+            tokenizer: {
+                stemmer: stemmers.english,
+            },
+        },
+    })
+
+    data.forEach(async (value) => {
+        await insert(search, {
+            ...value,
+            tags: value.tags.join(","),
+            timestamp: value.timestamp + (new Date(value.timestamp)).toDateString()
+        })
+    });
+
+    return search;
+};
+
 export default function BlogList() {
     const data = useLoaderData() as LoadedArticle[];
-
+    const [searchDB, setSearch] = useState<Orama<{Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore;}>>({} as Orama<{Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore;}>);
     const [posts, setPosts] = useState<LoadedArticle[]>([]);
     const [page, setPage] = useState<number>(0);
     const [searchValue, setSearchValue] = useState<string>("");
     const [pageSize, setPageSize] = useState<number>(5);
 
     useEffect(() => {
+        searchMaker(data).then((res) => {
+            setSearch(res);
+        }).catch((err) => {
+            console.error(err);
+        });
         setPosts(data.slice(0, pageSize));
     }, []);
 
@@ -44,8 +80,14 @@ export default function BlogList() {
         setPosts(data.slice(pageSize * page, pageSize + (pageSize * page)));
         setPage(page);
     };
+    console.log(searchDB)
+    const onSearch = async () => {
+        const result = await search(searchDB, {
+            term: searchValue,
+            properties: ["title", "summary", "tags", "timestamp"],
+        })
 
-    const onSearch = () => {
+        console.log(result);
         // filter posts by tags, title, summary, and publish date
     };
 
@@ -82,10 +124,10 @@ export default function BlogList() {
                     }}
                 />
             </StyledEngineProvider>
-            <Suspense 
+            <Suspense
                 fallback={
-                    <div style={{display:"flex"}}>
-                        <CustomProgress/>
+                    <div style={{ display: "flex" }}>
+                        <CustomProgress />
                     </div>
                 }
             >

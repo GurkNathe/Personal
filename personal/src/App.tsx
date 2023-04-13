@@ -38,9 +38,8 @@ export default function App() {
         createRoutesFromElements(
             <Route path="/" element={<Root />} >
                 <Route index element={<Home />} errorElement={<ErrorBoundaryHome/>}/>
-                <Route path="/blog" element={<BlogList />} loader={articleLoader}>
-                    <Route path=":contentUrl" element={<BlogArticle />} loader={({ params }) => articleTextLoader(params.contentUrl)} />
-                </Route>
+                <Route path="/blog" element={<BlogList />} loader={articleLoader}/>
+                <Route path="/blog/:contentUrl/article" element={<BlogArticle />} loader={({ params }) => articleTextLoader(params.contentUrl)} />
             </Route>
         )
     );

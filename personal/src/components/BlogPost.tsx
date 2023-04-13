@@ -23,7 +23,7 @@ export interface LoadedArticle {
 export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tags, timestamp} : LoadedArticle) {
     return (
         <Box className="post" component="div">
-            <Link to={`/blog/${contentUrl}`} className="link">
+            <Link to={`/blog/${contentUrl}/article`} className="link">
                 <Card variant="outlined">
                     <Grid container>
                         <Grid container item className="top">
