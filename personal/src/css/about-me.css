@@ -20,3 +20,8 @@
     font-size: 4rem;
     font-family: "Space Mono", monospace;
 }
+
+.me-links {
+    display: flex;
+    justify-content: space-between;
+}
