@@ -29,37 +29,9 @@ export const articleLoader = async () => {
     return articles;
 };
 
-const searchMaker = async (data: LoadedArticle[]) => {
-    const search = await create({
-        schema: {
-            title: "string",
-            thumbnailUrl: "string",
-            summary: "string",
-            contentUrl: "string",
-            tags: "string",
-            timestamp: "string",
-        },
-        components: {
-            tokenizer: {
-                stemmer: stemmers.english,
-            },
-        },
-    })
-
-    data.forEach(async (value) => {
-        await insert(search, {
-            ...value,
-            tags: value.tags.join(","),
-            timestamp: value.timestamp + " " + (new Date(value.timestamp)).toDateString()
-        })
-    });
-
-    return search;
-};
-
 export default function BlogList() {
     const data = useLoaderData() as LoadedArticle[];
-    const [searchDB, setSearch] = useState<Orama<{Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore;}>>({} as Orama<{Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore;}>);
+    const [searchDB, setSearch] = useState<Orama<{ Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore; }>>({} as Orama<{ Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore; }>);
     const [clayData, setClayData] = useState(data);
     const [posts, setPosts] = useState<LoadedArticle[]>([]);
     const [page, setPage] = useState<number>(0);
@@ -75,11 +47,39 @@ export default function BlogList() {
         setPosts(clayData.slice(0, pageSize));
     }, []);
 
+    const searchMaker = async (data: LoadedArticle[]) => {
+        const search = await create({
+            schema: {
+                title: "string",
+                thumbnailUrl: "string",
+                summary: "string",
+                contentUrl: "string",
+                tags: "string",
+                timestamp: "string",
+            },
+            components: {
+                tokenizer: {
+                    stemmer: stemmers.english,
+                },
+            },
+        })
+
+        data.forEach(async (value) => {
+            await insert(search, {
+                ...value,
+                tags: value.tags.join(","),
+                timestamp: value.timestamp + " " + (new Date(value.timestamp)).toDateString()
+            })
+        });
+
+        return search;
+    };
+
     const onPageChange = (page: number) => {
         setPosts(clayData.slice(pageSize * page, pageSize + (pageSize * page)));
         setPage(page);
     };
-    
+
     const onSearch = async (query: string) => {
         setSearchValue(query);
         if (query === "") {
@@ -144,7 +144,7 @@ export default function BlogList() {
                     </div>
                 }
             >
-                {posts.length > 0 ? 
+                {posts.length > 0 ?
                     <>
                         {pageSize < clayData.length ?
                             <Pagination
@@ -188,7 +188,7 @@ export default function BlogList() {
                             /> :
                             <div style={{ padding: "10px" }}></div>
                         }
-                    </> : 
+                    </> :
                     <div>No available posts.</div>
                 }
             </Suspense>
