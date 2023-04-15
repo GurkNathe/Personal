@@ -1,6 +1,6 @@
 .aboutme {
     width: 100%;
-    background-image: radial-gradient(circle at top left, #CCD4FF, #FFF7CC);
+    background-image: radial-gradient(circle at top left, #FFF569, #391094);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,13 +22,13 @@
 }
 
 .me-paper::-webkit-scrollbar-thumb {
-    background: #CCD4FF;
+    background: #9F75FF;
     border-radius: 10px;
     height: 50px;
 }
 
 .me-paper::-webkit-scrollbar-thumb:hover {
-    background: #9fadfa;
+    background: #765BB3;
 }
 
 .paper-div {

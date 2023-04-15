@@ -3,7 +3,25 @@
     height: 100vh; 
     display: flex;
     justify-content: center;
-    background-Image: radial-gradient(circle at top left, #fff7cc, #cb32a5);
+    background-image: radial-gradient(circle at top left, #FFA578, #427FB3);
     overflow-y: auto;
     flex-direction: row;
+}
+
+.root::-webkit-scrollbar {
+    width: 10px;
+}
+
+.root::-webkit-scrollbar-track {
+    background: none;
+}
+
+.root::-webkit-scrollbar-thumb {
+    background: linear-gradient(#366893, #FFA578);
+    border-radius: 10px;
+    height: 50px;
+}
+
+.root::-webkit-scrollbar-thumb:hover {
+    background: #bd7b5a;
 }
