@@ -1,0 +1,22 @@
+.aboutme {
+    width: 100%;
+    background-image: radial-gradient(circle at top left, #CCD4FF, #FFF7CC);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.me-paper {
+    height: 95%;
+    width: 80%;
+    margin-left: 60px;
+}
+
+.paper-div {
+    margin: 20px;
+}
+
+.name {
+    font-size: 4rem;
+    font-family: "Space Mono", monospace;
+}
