@@ -2,7 +2,7 @@
     "name": "personal",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://gurknathe.github.io/Personal",
+    "homepage": "https://gurknathe.github.io/Personal/personal",
     "dependencies": {
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
