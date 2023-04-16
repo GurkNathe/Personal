@@ -1,5 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 
+import Paper from "@mui/material/Paper";
+
 import ReactMarkdown from "react-markdown";
 
 import rehypeStringify from "rehype-stringify";
@@ -18,12 +20,14 @@ export default function BlogArticle() {
 
     return (
         <div className="page">
-            <ReactMarkdown
-                className="article"
-                children={data}
-                remarkPlugins={[remarkParse, remarkGfm]}
-                rehypePlugins={[rehypeStringify]}
-            />
+            <Paper className="article-paper">
+                <ReactMarkdown
+                    className="article"
+                    children={data}
+                    remarkPlugins={[remarkParse, remarkGfm]}
+                    rehypePlugins={[rehypeStringify]}
+                />
+            </Paper>
         </div>
     );
 }

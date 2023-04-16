@@ -152,10 +152,11 @@ export default function AboutMe() {
                             website for the entire summer, where I finished most of the
                             website, with the exception of the administrator pages.<br /><br />
 
-                            I started my senior year, and continued to work on the website
-                            when I had time: in between classes, after I was done with
-                            labs or assignment. I wouldn't completely finish the website
-                            until the summer of 2022, where it remained undeployed.<br /><br />
+                            I started my senior year at Central Washington University, and 
+                            continued to work on the website when I had time: in between 
+                            classes, after I was done with labs or assignments. I wouldn't 
+                            completely finish the website until the summer of 2022, where it 
+                            remained undeployed.<br /><br />
 
                             Looking back at the code I wrote, and my development methods,
                             I would say it is not my best work. When I started the project

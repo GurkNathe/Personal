@@ -1,3 +1,4 @@
 .vscode/
 *.sh
 /node_modules
+article-ideas.md
