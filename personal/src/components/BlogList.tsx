@@ -166,19 +166,21 @@ export default function BlogList() {
                                 timestamp={datum.timestamp}
                             />
                         ))}
-                        <SelectForm className="page-size" size="small">
-                            <InputLabel>Page Size</InputLabel>
-                            <PageSizeSelect
-                                value={String(pageSize)}
-                                onChange={(event) => changePageSize(event)}
-                            >
-                                <MenuItem value={5}>Five</MenuItem>
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={15}>Fifteen</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
-                            </PageSizeSelect>
-                        </SelectForm>
+                        {data.length > 5 ? 
+                            <SelectForm className="page-size" size="small">
+                                <InputLabel>Page Size</InputLabel>
+                                <PageSizeSelect
+                                    value={String(pageSize)}
+                                    onChange={(event) => changePageSize(event)}
+                                >
+                                    <MenuItem value={5}>Five</MenuItem>
+                                    <MenuItem value={10}>Ten</MenuItem>
+                                    <MenuItem value={15}>Fifteen</MenuItem>
+                                    <MenuItem value={20}>Twenty</MenuItem>
+                                    <MenuItem value={30}>Thirty</MenuItem>
+                                </PageSizeSelect>
+                            </SelectForm> : null
+                        }
                         {pageSize < clayData.length ?
                             <Pagination
                                 className="pages"
