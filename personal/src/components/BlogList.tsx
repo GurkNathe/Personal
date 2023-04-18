@@ -125,7 +125,6 @@ export default function BlogList() {
                     className="search"
                     margin="dense"
                     placeholder="Search..."
-                    autoFocus
                     value={searchValue}
                     onChange={(event) => onSearch(event.target.value)}
                     InputProps={{

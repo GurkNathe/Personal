@@ -49,7 +49,7 @@ export default function AboutMe() {
         const interval = setInterval(() => {
             let newText = name.split("")
                 .map((_, index) => {
-                    if (index < iterations) {
+                    if (index < iterations || (original[index] === " " && window.innerWidth <= 496)) {
                         return original[index];
                     }
 
@@ -214,7 +214,7 @@ export default function AboutMe() {
                             <span className="links-arrow">-&gt;</span>
                         </h2>
                         <div className="me-links">
-                            <Button href="/resources/Resume.pdf" target="_blank" rel="noreferrer" startIcon={<FileDownloadIcon />}>Resume</Button>
+                            <Button href="resources/Resume.pdf" target="_blank" rel="noreferrer" startIcon={<FileDownloadIcon />}>Resume</Button>
                             <Button href="https://github.com/GurkNathe/" target="_blank" rel="noreferrer" startIcon={<GitHubIcon />}>Github</Button>
                             <Button href="https://www.linkedin.com/in/ethan-krug-5a3088171" target="_blank" rel="noreferrer" startIcon={<LinkedInIcon />}>LinkedIn</Button>
                             <Button href="mailto:ethan.c.krug@gmail.com" target="_blank" rel="noreferrer" startIcon={<EmailIcon />}>Email</Button>

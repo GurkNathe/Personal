@@ -1,5 +1,5 @@
 import {
-    createBrowserRouter,
+    createHashRouter,
     createRoutesFromElements,
     Outlet,
     Route,
@@ -25,6 +25,7 @@ export default function App() {
         );
     };
 
+    // TODO: Better visual when no WebGL
     const ErrorBoundaryHome = () => {
         const error = useRouteError();
         console.error("Couldn't load WebGL properly:", error);
@@ -35,15 +36,17 @@ export default function App() {
         );
     };
 
-    const router = createBrowserRouter(
-        createRoutesFromElements(
-            <Route path="/" element={<Root />} >
-                <Route index element={<Home />} errorElement={<ErrorBoundaryHome/>}/>
-                <Route path="/about-me" element={<AboutMe />}/>
-                <Route path="/blog" element={<BlogList />} loader={articleLoader}/>
-                <Route path="/blog/:contentUrl/article" element={<BlogArticle />} loader={({ params }) => articleTextLoader(params.contentUrl)} />
-            </Route>
-        )
+    const routes = createRoutesFromElements(
+        <Route path="/" element={<Root />} >
+            <Route index path="/" element={<Home />} errorElement={<ErrorBoundaryHome/>}/>
+            <Route path="/about-me" element={<AboutMe />}/>
+            <Route path="/blog" element={<BlogList />} loader={articleLoader}/>
+            <Route path="/blog/:contentUrl/article" element={<BlogArticle />} loader={({ params }) => articleTextLoader(params.contentUrl)} />
+        </Route>
+    );
+
+    const router = createHashRouter(
+        routes
     );
 
     return <RouterProvider router={router} />;
