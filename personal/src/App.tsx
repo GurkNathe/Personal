@@ -11,6 +11,7 @@ import AboutMe from "./components/AboutMe";
 import BlogArticle, { articleTextLoader } from "./components/BlogArticle";
 import BlogList, { articleLoader } from "./components/BlogList";
 import Home from "./components/Home";
+import Error404 from "./components/404";
 import SideBar from "./components/SideBar";
 
 import "./css/root.css";
@@ -42,6 +43,7 @@ export default function App() {
             <Route path="/about-me" element={<AboutMe />}/>
             <Route path="/blog" element={<BlogList />} loader={articleLoader}/>
             <Route path="/blog/:contentUrl/article" element={<BlogArticle />} loader={({ params }) => articleTextLoader(params.contentUrl)} />
+            <Route path="*" element={<Error404/>}/>
         </Route>
     );
 
