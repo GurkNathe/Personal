@@ -34,13 +34,27 @@
 }
 
 .title {
-    font-size: 20px;
+    font-size: min(20px, 5vw);
     font-weight: bold;
 }
 
 .summary {
-    font-size: 16px;
+    font-size: min(16px, 5vw);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+@media all and (min-width: 1000px) and (max-width: 1100px) {
+    .summary {
+        -webkit-line-clamp: 6;
+    }
+}
+
+@media all and (min-width: 0px) and (max-width: 1000px) {
+    .summary {
+        -webkit-line-clamp: 5;
+    }
 }
 
 .chip-cell {

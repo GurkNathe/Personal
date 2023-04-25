@@ -1,10 +1,30 @@
 .list {
     width: 100%;
-    margin: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-left: 65px;
+    margin-left: 64px;
+    background-image: radial-gradient(circle at top left, #19FFE0, #B33600);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.list::-webkit-scrollbar-track {
+    background: none;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background: linear-gradient(#9d3001, #19FFE0);
+    border-radius: 10px;
+    height: 50px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+    background: #15ccb3;
 }
 
 .search {

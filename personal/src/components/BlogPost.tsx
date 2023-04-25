@@ -46,7 +46,7 @@ export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tag
                         <Grid item className="chip-cell">
                             {tags.map((tag) => (
                                 <Chip label={tag} variant="outlined" className="chip" key={tag}/>
-                                ))}
+                            ))}
                         </Grid>
                     </Grid>
                 </Card>

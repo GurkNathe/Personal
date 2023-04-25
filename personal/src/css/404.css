@@ -1,47 +1,37 @@
 .missing {
     width: 100%;
     height: 100%;
+    margin-left: 64px;
+    background: black;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-table {
-    border-collapse: collapse;
+.maze {
+    background: black;
 }
 
-td {
-    width: 20px;
-    height: 20px;
-    border: 2px solid black;
-}
-
-.wall {
-    width: 20px;
-    height: 20px;
+.text {
+    color: white;
+    position: fixed;
     background-color: black;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+
+    animation-name: load;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: -5px -5px 20px 7px #FF4D91, 5px 5px 20px 7px #00B30C;
 }
 
-.path {
-    width: 20px;
-    height: 20px;
-    background-color: white;
-}
-
-.start {
-    width: 20px;
-    height: 20px;
-    background-color: green;
-}
-
-.end {
-    width: 20px;
-    height: 20px;
-    background-color: red;
-}
-
-.character {
-    width: 20px;
-    height: 20px;
-    background-color: blue;
+@keyframes load {
+    0%   {opacity: 0.9;}
+    100% {opacity: 0.1;}
 }
