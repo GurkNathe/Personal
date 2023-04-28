@@ -11,21 +11,21 @@ import "../css/home.css";
 
 const Background = () => {
     const bg_array: string[] = [
-        "resources/snowy-mountain.jpg",
-        "resources/plum-blossom-path.jpg",
-        "resources/plum-blossom-temple.jpg",
-        "resources/mountain-river.jpg",
-        "resources/desert-ruins.jpg",
-        "resources/magic-jungle.jpg",
-        "resources/cyberpunk.jpg",
-        "resources/temple-peak.jpg",
-        "resources/future-city.jpg",
-        "resources/fjords.jpg",
-        "resources/mesa.jpg",
-        "resources/cliffside.jpg",
-        "resources/fantasy-islands.jpg",
-        "resources/shrub-river.jpg",
-        "resources/plateau-river.jpg",
+        "resources/snowy-mountain-c.jpg",
+        "resources/plum-blossom-path-c.jpg",
+        "resources/plum-blossom-temple-c.jpg",
+        "resources/mountain-river-c.jpg",
+        "resources/desert-ruins-c.jpg",
+        "resources/magic-jungle-c.jpg",
+        "resources/cyberpunk-c.jpg",
+        "resources/temple-peak-c.jpg",
+        "resources/future-city-c.jpg",
+        "resources/fjords-c.jpg",
+        "resources/mesa-c.jpg",
+        "resources/cliffside-c.jpg",
+        "resources/fantasy-islands-c.jpg",
+        "resources/shrub-river-c.jpg",
+        "resources/plateau-river-c.jpg",
     ]
 
     const bg = useLoader(TextureLoader, bg_array[Math.floor(Math.random() * bg_array.length)]);
@@ -47,7 +47,7 @@ const Background = () => {
                 <meshStandardMaterial map={bg} side={THREE.BackSide}/>
                 <mesh position={[-3, -0.5, size]}>
                     <Text3D font={"resources/Inter_Regular.json"}>
-                        Ethan Krug
+                        Welcome!
                         <meshStandardMaterial color="#181818"/>
                         <directionalLight position={[0,1,1]}/>
                     </Text3D>
