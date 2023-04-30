@@ -75,7 +75,7 @@ export function Donut() {
         const sB : number = Math.sin(nums[1]);
 
         for (let k = 0; k < 1760; k++) {
-            b[k] = k % 80 == 79 ? "\n" : " ";
+            b[k] = k % 80 === 79 ? "\n" : " ";
             z[k] = 0;
         }
 
@@ -105,8 +105,7 @@ export function Donut() {
     };
 
     useEffect(() => {
-        if (donut)
-            setInterval(asciiframe, 100);
+        if (donut) setInterval(asciiframe, 100);
     }, [donut]);
 
     return (

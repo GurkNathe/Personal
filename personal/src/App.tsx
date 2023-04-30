@@ -35,9 +35,5 @@ export default function App() {
         </Route>
     );
 
-    const router = createHashRouter(
-        routes
-    );
-
-    return <RouterProvider router={router} />;
+    return <RouterProvider router={createHashRouter(routes)} />;
 }

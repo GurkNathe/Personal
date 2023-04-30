@@ -21,6 +21,7 @@
     color:rgb(222, 255, 219);
     font-size: 6rem;
 }
+
 @media all and (min-width: 0px) and (max-width: 600px) {
     .welcome {
         font-size: 15vw;
