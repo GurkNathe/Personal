@@ -7,3 +7,25 @@
     align-items: center;
     padding-left: 60px;
 }
+
+.container {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 65px;
+}
+
+.welcome {
+    color:rgb(222, 255, 219);
+    font-size: 6rem;
+}
+@media all and (min-width: 0px) and (max-width: 600px) {
+    .welcome {
+        font-size: 15vw;
+    }
+}
+.center {
+    color: rgb(222, 255, 219)
+}
