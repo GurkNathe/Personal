@@ -19,7 +19,7 @@ export const articleTextLoader = async (url: string | undefined) => {
 
 export default function BlogArticle() {
     const data = useLoaderData() as string;
-    console.log(data)
+
     return (
         <div className="page">
             <Paper className="article-paper">
