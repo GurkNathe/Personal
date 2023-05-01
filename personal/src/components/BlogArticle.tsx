@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
+import remarkImages from "remark-images";
 
 import "../css/blog-article.css";
 
@@ -24,7 +25,7 @@ export default function BlogArticle() {
                 <ReactMarkdown
                     className="article"
                     children={data}
-                    remarkPlugins={[remarkParse, remarkGfm]}
+                    remarkPlugins={[remarkImages, remarkParse, remarkGfm]}
                     rehypePlugins={[rehypeStringify]}
                 />
             </Paper>
