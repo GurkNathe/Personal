@@ -1,1 +1,0 @@
-If you're having a difficulty deciding which programming language to learn first, this article can help you decide. I discuss different programming languages, and which ones I believe are the best to learn when first starting out. I also discuss the scenarios in which you should choose said languages.
