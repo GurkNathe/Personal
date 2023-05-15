@@ -21,8 +21,22 @@
             "Food",
             "Korean Food",
             "Recipe",
-            "Cooking"
+            "Cooking",
+            "Side Dish"
         ],
         "timestamp": "2023-05-14T20:10:44"
+    },
+    {
+        "title": "Greek Yogurt Breakfast Mix",
+        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/421817629012201.jpg?raw=true",
+        "summary": "This is a recipe for the breakfast that I eat every day. It is a greek yogurt, berry, and oat mixture. It is healthy and a great way to start your morning. ",
+        "contentUrl": "100002",
+        "tags": [
+            "Food",
+            "Breakfast",
+            "Recipe",
+            "Health"
+        ],
+        "timestamp": "2023-05-14T20:39:06"
     }
 ]
