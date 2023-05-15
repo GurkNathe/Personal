@@ -159,11 +159,11 @@ export default function AboutMe() {
                             remained undeployed.<br /><br />
 
                             Looking back at the code I wrote, and my development methods,
-                            I would say it is not my best work. When I started the project
-                            I was essentially a beginner with React, and didn't know
-                            design paradigms in React, or virtually anything about
-                            web development. The only recent applicable experience I had was
-                            from the hiking website project from earlier in 2021. This also
+                            I would say it is not my best work, however, I learned a lot. 
+                            When I started the project I was essentially a beginner with React, 
+                            and didn't know design paradigms in React, or virtually anything 
+                            about web development. The only recent applicable experience I had 
+                            was from the hiking website project from earlier in 2021. This also
                             showed me how the need to stay updated with technologies is
                             important. The experience I had with React Native, was minimally
                             applicable due to the changes in React during the period of time
