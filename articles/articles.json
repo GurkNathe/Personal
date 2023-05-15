@@ -11,5 +11,18 @@
             "Government Corruption"
         ],
         "timestamp": "2023-04-15T16:45:38"
+    },
+    {
+        "title": "Kimchijeon Recipe",
+        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/421815752021201.jpg?raw=true",
+        "summary": "This is a recipe for Kimchijeon or Kimchi Pancakes. It is the recipe that I use for making kimchijeon at home when I am craving for it. It is a good social snack or side dish that most people love.",
+        "contentUrl": "100001",
+        "tags": [
+            "Food",
+            "Korean Food",
+            "Recipe",
+            "Cooking"
+        ],
+        "timestamp": "2023-05-14T20:10:44"
     }
 ]

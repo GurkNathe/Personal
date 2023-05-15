@@ -1,0 +1,1 @@
+This is a recipe for Kimchijeon or Kimchi Pancakes. It is the recipe that I use for making kimchijeon at home when I am craving for it. It is a good social snack or side dish that most people love.
