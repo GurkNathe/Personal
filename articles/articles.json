@@ -10,7 +10,11 @@
             "FOSS",
             "Apps"
         ],
-        "timestamp": "2023-05-16T17:19:55"
+        "timestamp": "2023-05-16T17:19:55",
+        "grade_level": [
+            "Fairly Difficult",
+            12
+        ]
     },
     {
         "title": "Greek Yogurt Breakfast Mix",
@@ -23,7 +27,11 @@
             "Recipe",
             "Health"
         ],
-        "timestamp": "2023-05-14T20:39:06"
+        "timestamp": "2023-05-14T20:39:06",
+        "grade_level": [
+            "Fairly Easy",
+            8
+        ]
     },
     {
         "title": "Kimchijeon Recipe",
@@ -37,7 +45,11 @@
             "Cooking",
             "Side Dish"
         ],
-        "timestamp": "2023-05-14T20:10:44"
+        "timestamp": "2023-05-14T20:10:44",
+        "grade_level": [
+            "Fairly Easy",
+            8
+        ]
     },
     {
         "title": "Analysis and Critique of Taylor\u2019s Constant Surveillance State",
@@ -50,6 +62,10 @@
             "Mental Health",
             "Government Corruption"
         ],
-        "timestamp": "2023-04-15T16:45:38"
+        "timestamp": "2023-04-15T16:45:38",
+        "grade_level": [
+            "Difficult",
+            14
+        ]
     }
 ]

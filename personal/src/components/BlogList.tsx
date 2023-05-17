@@ -56,6 +56,7 @@ export default function BlogList() {
                 contentUrl: "string",
                 tags: "string",
                 timestamp: "string",
+                grade_level: "string"
             },
             components: {
                 tokenizer: {
@@ -163,6 +164,7 @@ export default function BlogList() {
                                 contentUrl={datum.contentUrl}
                                 tags={datum.tags}
                                 timestamp={datum.timestamp}
+                                grade_level={datum.grade_level}
                             />
                         ))}
                         {data.length > 5 ? 

@@ -18,9 +18,10 @@ export interface LoadedArticle {
     contentUrl: string;
     tags: string[];
     timestamp: string;
+    grade_level: (string|number)[];
 }
 
-export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tags, timestamp} : LoadedArticle) {
+export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tags, timestamp, grade_level} : LoadedArticle) {
     return (
         <Box className="post" component="div">
             <Link to={`/blog/${contentUrl}/article`} className="link">
