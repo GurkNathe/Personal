@@ -37,6 +37,10 @@ export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tag
                             <Grid container item xs={8} spacing={2} className="text-cell">
                                 <Grid item>
                                     <span className="title">{title}</span>
+                                    <Grid item className="read-level">
+                                        <Chip label={`Readability: ${grade_level[0]}`} variant="outlined" className="chip"/>
+                                        <Chip label={`Reading Level: Grade ${grade_level[1]}`} variant="outlined" className="chip"/>
+                                    </Grid>
                                     <ReactMarkdown className="summary" children={summary} remarkPlugins={[remarkGfm]}/>
                                 </Grid>
                                 <Grid item>

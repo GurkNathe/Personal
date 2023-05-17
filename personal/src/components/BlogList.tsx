@@ -69,7 +69,8 @@ export default function BlogList() {
             await insert(search, {
                 ...value,
                 tags: value.tags.join(","),
-                timestamp: value.timestamp + " " + (new Date(value.timestamp)).toDateString()
+                timestamp: value.timestamp + " " + (new Date(value.timestamp)).toDateString(),
+                grade_level: value.grade_level.join(",")
             })
         });
 
@@ -89,7 +90,7 @@ export default function BlogList() {
         } else {
             const result = await search(searchDB, {
                 term: query,
-                properties: ["title", "summary", "tags", "timestamp"],
+                properties: ["title", "summary", "tags", "timestamp", "grade_level"],
             })
 
             if (result.count === 0) {

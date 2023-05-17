@@ -38,6 +38,10 @@
     font-weight: bold;
 }
 
+.read-level {
+    padding-top: 10px;
+}
+
 .summary {
     font-size: min(16px, 5vw);
     display: -webkit-box;
