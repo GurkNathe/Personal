@@ -15,7 +15,7 @@ def csv_to_json(csvFilePath, jsonFilePath):
             jsonArray.append(row)
 
     with open(jsonFilePath, 'w', encoding='utf-8') as jsonf:
-        jsonString = json.dumps(jsonArray, indent=4)
+        jsonString = json.dumps(jsonArray[::-1], indent=4)
         jsonf.write(jsonString)
 
 csvFilePath = r'articles.csv'

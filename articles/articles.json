@@ -1,16 +1,29 @@
 [
     {
-        "title": "Analysis and Critique of Taylor\u2019s Constant Surveillance State",
-        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/419297490001201.jpg?raw=true",
-        "summary": "Discusses the article by James Stacy Taylor called \u201cIn Praise of Big Brother: Why We Should Learn to Stop Worrying and Love Government Surveillance\u201d through analysis and critique of the ideas presented. The article by James Stacy Taylor argues that government surveillance can be beneficial for society and that citizens should embrace it rather than fearing it. The central argument circling around the idea of \"only those who have something to hide have something to fear\". The thesis of this article is to analyze Taylor's argument and critique the viability and potential impacts of a constant surveillance state.",
-        "contentUrl": "100000",
+        "title": "Mobile Phone Privacy",
+        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/421978168020201.jpg?raw=true",
+        "summary": "Discusses digital privacy for mobile phones. The main focus is on applications that can enhance your privacy as well as steps you can take to enhance your privacy from the operating system up.",
+        "contentUrl": "100003",
         "tags": [
-            "Philosophy",
-            "Privacy & Surveillance",
-            "Mental Health",
-            "Government Corruption"
+            "Privacy",
+            "Android",
+            "FOSS",
+            "Apps"
         ],
-        "timestamp": "2023-04-15T16:45:38"
+        "timestamp": "2023-05-16T17:19:55"
+    },
+    {
+        "title": "Greek Yogurt Breakfast Mix",
+        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/421817629012201.jpg?raw=true",
+        "summary": "This is a recipe for the breakfast that I eat every day. It is a greek yogurt, berry, and oat mixture. It is healthy and a great way to start your morning. ",
+        "contentUrl": "100002",
+        "tags": [
+            "Food",
+            "Breakfast",
+            "Recipe",
+            "Health"
+        ],
+        "timestamp": "2023-05-14T20:39:06"
     },
     {
         "title": "Kimchijeon Recipe",
@@ -27,16 +40,16 @@
         "timestamp": "2023-05-14T20:10:44"
     },
     {
-        "title": "Greek Yogurt Breakfast Mix",
-        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/421817629012201.jpg?raw=true",
-        "summary": "This is a recipe for the breakfast that I eat every day. It is a greek yogurt, berry, and oat mixture. It is healthy and a great way to start your morning. ",
-        "contentUrl": "100002",
+        "title": "Analysis and Critique of Taylor\u2019s Constant Surveillance State",
+        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/419297490001201.jpg?raw=true",
+        "summary": "Discusses the article by James Stacy Taylor called \u201cIn Praise of Big Brother: Why We Should Learn to Stop Worrying and Love Government Surveillance\u201d through analysis and critique of the ideas presented. The article by James Stacy Taylor argues that government surveillance can be beneficial for society and that citizens should embrace it rather than fearing it. The central argument circling around the idea of \"only those who have something to hide have something to fear\". The thesis of this article is to analyze Taylor's argument and critique the viability and potential impacts of a constant surveillance state.",
+        "contentUrl": "100000",
         "tags": [
-            "Food",
-            "Breakfast",
-            "Recipe",
-            "Health"
+            "Philosophy",
+            "Privacy & Surveillance",
+            "Mental Health",
+            "Government Corruption"
         ],
-        "timestamp": "2023-05-14T20:39:06"
+        "timestamp": "2023-04-15T16:45:38"
     }
 ]
