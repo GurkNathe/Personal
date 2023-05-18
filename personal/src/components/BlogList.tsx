@@ -23,16 +23,18 @@ import {
 
 import "../css/blog-list.css";
 
-export const articleLoader = async () => {
+export const articleLoader = async (): Promise<any> => {
     const res = await fetch("https://raw.githubusercontent.com/GurkNathe/Personal/main/articles/articles.json");
     const articles = res.json();
     return articles;
 };
 
+type OramaSearch = Orama<{ Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore; }>;
+
 export default function BlogList() {
     const data = useLoaderData() as LoadedArticle[];
-    const [searchDB, setSearch] = useState<Orama<{ Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore; }>>({} as Orama<{ Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore; }>);
-    const [clayData, setClayData] = useState(data);
+    const [searchDB, setSearch] = useState<OramaSearch>({} as OramaSearch);
+    const [clayData, setClayData] = useState<LoadedArticle[]>(data);
     const [posts, setPosts] = useState<LoadedArticle[]>([]);
     const [page, setPage] = useState<number>(0);
     const [searchValue, setSearchValue] = useState<string>("");
@@ -47,7 +49,7 @@ export default function BlogList() {
         setPosts(clayData.slice(0, pageSize));
     }, []);
 
-    const searchMaker = async (data: LoadedArticle[]) => {
+    const searchMaker = async (data: LoadedArticle[]): Promise<OramaSearch> => {
         const search = await create({
             schema: {
                 title: "string",
@@ -77,12 +79,12 @@ export default function BlogList() {
         return search;
     };
 
-    const onPageChange = (page: number) => {
+    const onPageChange = (page: number): void => {
         setPosts(clayData.slice(pageSize * page, pageSize + (pageSize * page)));
         setPage(page);
     };
 
-    const onSearch = async (query: string) => {
+    const onSearch = async (query: string): Promise<void> => {
         setSearchValue(query);
         if (query === "") {
             setClayData(data);
@@ -109,7 +111,7 @@ export default function BlogList() {
         }
     };
 
-    const changePageSize = (event: SelectChangeEvent<unknown>) => {
+    const changePageSize = (event: SelectChangeEvent<unknown>): void => {
         let pSize: number = Number(event.target.value);
 
         setPosts(clayData.slice(0, pSize));

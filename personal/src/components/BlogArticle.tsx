@@ -12,7 +12,7 @@ import remarkUnwrapImages from "remark-unwrap-images";
 
 import "../css/blog-article.css";
 
-export const articleTextLoader = async (url: string | undefined) => {
+export const articleTextLoader = async (url: string | undefined): Promise<Response> => {
     const res = await fetch(`https://raw.githubusercontent.com/GurkNathe/Personal/main/articles/articles/${url}.md`);
     return res;
 };

@@ -20,9 +20,9 @@ import { Link } from "react-router-dom";
 import "../css/sidebar.css";
 
 export default function SideBar() {
-    const [open, toggleDrawer] = useState(false);
+    const [open, toggleDrawer] = useState<boolean>(false);
 
-    const barItem = (text: string, icon: React.ReactNode, page: string, toggle: Function) => (
+    const barItem = (text: string, icon: React.ReactNode, page: string, toggle: Function): JSX.Element => (
         <ListItem>
             <Link className="link" to={page}>
                 <ListItemButton onClick={() => toggle(false)}>

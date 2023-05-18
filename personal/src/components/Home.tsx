@@ -32,7 +32,7 @@ const Background = () => {
 
     const sphere_mesh = useRef<Mesh>(null!);
 
-    let size = -8.3 * Math.pow(Math.log((window.innerWidth / 100) - 2), -1);
+    let size: number = -8.3 * Math.pow(Math.log((window.innerWidth / 100) - 2), -1);
 
     useFrame(({ clock }) => {
         sphere_mesh.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.05;
@@ -61,7 +61,7 @@ export function Donut() {
     const [ab, setAB] = useState<number[]>([1, 1]);
     const donut = useRef<HTMLPreElement>(null!);
 
-    const asciiframe = async () => {
+    const asciiframe = async (): Promise<void> => {
         let nums : number[] = ab
         nums[0] += 0.07;
         nums[1] += 0.03;

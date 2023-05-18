@@ -13,14 +13,14 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import "../css/about-me.css"
 
 export default function AboutMe() {
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+-=[]{};':\",./<>?`~";
+    const letters: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+-=[]{};':\",./<>?`~";
     const [name, setName] = useState<string>("");
 
     useEffect(() => {
         textLoad(10, "ETHAN KRUG", setName);
     }, []);
 
-    const textLoad = (speed: number = 10, original: string = "ETHAN KRUG", setText: React.Dispatch<React.SetStateAction<string>>) => {
+    const textLoad = (speed: number = 10, original: string = "ETHAN KRUG", setText: React.Dispatch<React.SetStateAction<string>>): void => {
         let finalName = "";
         let iterations = 0;
 
@@ -42,7 +42,7 @@ export default function AboutMe() {
         }, speed)
     }
 
-    const nameHover = () => {
+    const nameHover = (): void => {
         let iterations = 0;
         const original = "ETHAN KRUG"
 

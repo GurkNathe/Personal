@@ -26,7 +26,7 @@ export default class Maze {
         this.setEnd = setEnd;
     }
 
-    setup() {
+    setup(): void {
         for (let row = 0; row < this.rows; row++) {
             let r: Cell[] = [];
             for (let col = 0; col < this.columns; col++) {
@@ -40,7 +40,7 @@ export default class Maze {
         this.grid[this.rows - 1][this.columns - 1].goal = true;
     }
 
-    draw() {
+    draw(): void {
         this.canvas.width = this.size;
         this.canvas.height = this.size;
         this.canvas.style.background = "black";
@@ -103,7 +103,7 @@ class Cell {
         this.parentGrid = grid;
     }
 
-    highlight(columns: number, color: string) {
+    highlight(columns: number, color: string): void {
         // Additions and subtractions added so the highlighted cell does cover the walls
         let x = (this.column * this.parentSize) / columns + 1;
         let y = (this.row * this.parentSize) / columns + 1;
@@ -116,7 +116,7 @@ class Cell {
         );
     }
 
-    removeWalls(cell1: Cell, cell2: Cell) {
+    removeWalls(cell1: Cell, cell2: Cell): void {
         // compares to two cells on x axis
         let x = cell1.column - cell2.column;
         // Removes the relevant walls if there is a different on x axis
@@ -139,7 +139,7 @@ class Cell {
         }
     }
 
-    checkNeighbours() {
+    checkNeighbours(): Cell | undefined {
         let grid = this.parentGrid;
         let row = this.row;
         let col = this.column;
@@ -163,35 +163,35 @@ class Cell {
         }
     }
 
-    drawTopWall(x: number, y: number, size: number, columns: number, rows: number) {
+    drawTopWall(x: number, y: number, size: number, columns: number): void {
         this.context.beginPath();
         this.context.moveTo(x, y);
         this.context.lineTo(x + size / columns, y);
         this.context.stroke();
     }
 
-    drawRightWall(x: number, y: number, size: number, columns: number, rows: number) {
+    drawRightWall(x: number, y: number, size: number, columns: number, rows: number): void {
         this.context.beginPath();
         this.context.moveTo(x + size / columns, y);
         this.context.lineTo(x + size / columns, y + size / rows);
         this.context.stroke();
     }
 
-    drawBottomWall(x: number, y: number, size: number, columns: number, rows: number) {
+    drawBottomWall(x: number, y: number, size: number, columns: number, rows: number): void {
         this.context.beginPath();
         this.context.moveTo(x, y + size / rows);
         this.context.lineTo(x + size / columns, y + size / rows);
         this.context.stroke();
     }
 
-    drawLeftWall(x: number, y: number, size: number, rows: number) {
+    drawLeftWall(x: number, y: number, size: number, rows: number): void {
         this.context.beginPath();
         this.context.moveTo(x, y);
         this.context.lineTo(x, y + size / rows);
         this.context.stroke();
     }
 
-    show(size: number, rows: number, columns: number) {
+    show(size: number, rows: number, columns: number): void {
         let x = (this.column * size) / columns;
         let y = (this.row * size) / rows;
 
@@ -199,7 +199,7 @@ class Cell {
         this.context.fillStyle = "black";
         this.context.lineWidth = 2;
 
-        if (this.walls.top) this.drawTopWall(x, y, size, columns, rows);
+        if (this.walls.top) this.drawTopWall(x, y, size, columns);
         if (this.walls.right) this.drawRightWall(x, y, size, columns, rows);
         if (this.walls.bottom) this.drawBottomWall(x, y, size, columns, rows);
         if (this.walls.left) this.drawLeftWall(x, y, size, columns);
