@@ -37,7 +37,7 @@ export default function SideBar() {
 
     return(
         <div className="bar">
-            <Button onClick={() => toggleDrawer(true)}>
+            <Button onClick={() => toggleDrawer(true)} aria-label="Open Navigation Bar">
                 <MenuRoundedIcon className="button-icon"/>
             </Button>
             <Drawer

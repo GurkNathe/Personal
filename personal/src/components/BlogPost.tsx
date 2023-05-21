@@ -30,8 +30,10 @@ export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tag
                         <Grid container item className="top">
                             <Grid item xs={4} className="image-cell">
                                 <img 
+                                    rel="preload"
                                     src={thumbnailUrl} 
                                     alt={title} 
+                                    loading="lazy"
                                 />
                             </Grid>
                             <Grid container item xs={8} spacing={2} className="text-cell">
