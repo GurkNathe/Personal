@@ -54,6 +54,7 @@ export default function BlogList() {
             schema: {
                 title: "string",
                 thumbnailUrl: "string",
+                tempThumbnailUrl: "string",
                 summary: "string",
                 contentUrl: "string",
                 tags: "string",
@@ -163,6 +164,7 @@ export default function BlogList() {
                                 key={index}
                                 title={datum.title}
                                 thumbnailUrl={datum.thumbnailUrl}
+                                tempThumbnailUrl={datum.tempThumbnailUrl}
                                 summary={datum.summary}
                                 contentUrl={datum.contentUrl}
                                 tags={datum.tags}

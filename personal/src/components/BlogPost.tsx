@@ -9,11 +9,14 @@ import Grid from "@mui/material/Grid";
 
 import { Link } from "react-router-dom";
 
+import { ProgressiveImg } from "./CustomComponent";
+
 import "../css/blog-post.css";
 
 export interface LoadedArticle {
     title: string;
     thumbnailUrl: string;
+    tempThumbnailUrl: string;
     summary: string;
     contentUrl: string;
     tags: string[];
@@ -21,7 +24,7 @@ export interface LoadedArticle {
     grade_level: (string|number)[];
 }
 
-export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tags, timestamp, grade_level} : LoadedArticle) {
+export default function BlogPost({ title, thumbnailUrl, tempThumbnailUrl, summary, contentUrl, tags, timestamp, grade_level} : LoadedArticle) {
     return (
         <Box className="post" component="div">
             <Link to={`/blog/${contentUrl}/article`} className="link">
@@ -29,11 +32,10 @@ export default function BlogPost({ title, thumbnailUrl, summary, contentUrl, tag
                     <Grid container>
                         <Grid container item className="top">
                             <Grid item xs={4} className="image-cell">
-                                <img 
-                                    rel="preload"
-                                    src={thumbnailUrl} 
-                                    alt={title} 
-                                    loading="lazy"
+                                <ProgressiveImg
+                                    placeholderSrc={tempThumbnailUrl}
+                                    src={thumbnailUrl}
+                                    title={title}
                                 />
                             </Grid>
                             <Grid container item xs={8} spacing={2} className="text-cell">

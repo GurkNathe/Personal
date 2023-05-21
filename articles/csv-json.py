@@ -61,7 +61,6 @@ def csv_to_json(csvFilePath, jsonFilePath):
         jsonf.write(jsonString)
 
 
-
 if __name__ == "__main__":
     csvFilePath = r'articles.csv'
     jsonFilePath = r'articles.json'

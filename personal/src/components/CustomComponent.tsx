@@ -1,8 +1,11 @@
+import { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import styled from "@mui/material/styles/styled";
 import TextField from "@mui/material/TextField";
+
+import "../css/custom.css";
 
 export const PageSizeSelect = styled(Select)({
     '.MuiOutlinedInput-notchedOutline': {
@@ -43,3 +46,33 @@ export const CustomProgress = styled(CircularProgress)({
         color: "black"
     }
 });
+
+type Img = {
+    placeholderSrc: string;
+    src: string;
+    title: string;
+}
+
+export const ProgressiveImg = ({ placeholderSrc, src, title }: Img) => {
+    const [imgSrc, setImgSrc] = useState<string>(placeholderSrc || src);
+
+    useEffect(() => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+            setImgSrc(src);
+        };
+    }, [src]);
+
+    const customClass: string = placeholderSrc && imgSrc === placeholderSrc ? "loading" : "loaded";
+
+    return (
+        <img
+            src={imgSrc}
+            alt={title}
+            rel="preload"
+            loading="lazy"
+            className={customClass}
+        />
+    );
+};
