@@ -1,7 +1,3 @@
-import ReactMarkdown from "react-markdown";
-
-import remarkGfm from "remark-gfm";
-
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Chip from "@mui/material/Chip";
@@ -45,7 +41,7 @@ export default function BlogPost({ title, thumbnailUrl, tempThumbnailUrl, summar
                                         <Chip label={`Readability: ${grade_level[0]}`} variant="outlined" className="chip"/>
                                         <Chip label={`Reading Level: Grade ${grade_level[1]}`} variant="outlined" className="chip"/>
                                     </Grid>
-                                    <ReactMarkdown className="summary" children={summary} remarkPlugins={[remarkGfm]}/>
+                                    <p className="summary" children={summary}/>
                                 </Grid>
                                 <Grid item>
                                     <span className="publish">Published: {(new Date(timestamp)).toDateString()}</span>
