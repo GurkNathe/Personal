@@ -70,7 +70,6 @@ export const ProgressiveImg = ({ placeholderSrc, src, title }: Img) => {
         <img
             src={imgSrc}
             alt={title}
-            rel="preload"
             loading="lazy"
             className={customClass}
         />
