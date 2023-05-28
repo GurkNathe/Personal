@@ -2,5 +2,3 @@
 *.sh
 /node_modules
 article-ideas.md
-article.odt
-test.py

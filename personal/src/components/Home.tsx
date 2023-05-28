@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Text3D } from "@react-three/drei";
@@ -58,7 +58,7 @@ export function Donut() {
     const [ab, setAB] = useState<number[]>([1, 1]);
     const donut = useRef<HTMLPreElement>(null!);
 
-    const asciiframe = async (): Promise<void> => {
+    const asciiframe = useCallback(async (): Promise<void> => {
         let nums : number[] = ab
         nums[0] += 0.07;
         nums[1] += 0.03;
@@ -99,11 +99,11 @@ export function Donut() {
 
         if (donut !== null && donut.current !== null && donut.current.innerHTML !== null) donut.current.innerHTML = b.join("")
         setAB(nums)
-    };
+    }, [ab]);
 
     useEffect(() => {
         if (donut) setInterval(asciiframe, 100);
-    }, [donut]);
+    }, [asciiframe, donut]);
 
     return (
         <div className="container">

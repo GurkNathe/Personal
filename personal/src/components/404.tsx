@@ -7,7 +7,6 @@ import Maze from "./Maze";
 import "../css/404.css";
 
 export default function Error404() {
-    const [maze, setMaze] = useState<Maze | null>(null)
     const [done, setDone] = useState<boolean>(false)
     const [hover, setHover] = useState<boolean>(false);
     const navigate = useNavigate();
@@ -15,10 +14,9 @@ export default function Error404() {
     useEffect(() => {
         let size = window.innerHeight < window.innerWidth ? 
             window.innerHeight : window.innerWidth;
-        let newMaze = new Maze(size - 65, 20, 20, setDone);
-        newMaze.setup();
-        newMaze.draw()
-        setMaze(maze);
+        let maze = new Maze(size - 65, 20, 20, setDone);
+        maze.setup();
+        maze.draw()
     }, [])
 
     return (

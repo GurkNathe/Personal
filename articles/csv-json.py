@@ -5,6 +5,13 @@ import json
 from datetime import datetime
 
 
+def cround(number: float):
+    if number - int(number) >= 0.5:
+        return int(number) + 1
+    else:
+        return int(number)
+
+
 def get_stats(file: str):
     reading_ease = -1
 
@@ -35,12 +42,9 @@ def get_stats(file: str):
 
         text_level = textstat.text_standard(text, float_output=True)
 
-    readability = ""
-    for i in difficulty:
-        if reading_ease in difficulty[i]:
-            readability = i
+    readability = next(i for i in difficulty if reading_ease in difficulty[i])
 
-    return readability, round((text_level + float(round(sum(grade_level)/7)))/2)
+    return readability, cround((text_level + sum(grade_level)/7)/2)
 
 
 def csv_to_json(csvFilePath, jsonFilePath):
