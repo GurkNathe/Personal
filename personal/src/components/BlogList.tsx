@@ -9,7 +9,7 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { SelectChangeEvent } from "@mui/material/Select";
 import StyledEngineProvider from "@mui/material/StyledEngineProvider";
 
-import { create, insert, search, stemmers } from "@orama/orama";
+import { create, insert, search } from "@orama/orama";
 import { OpaqueDocumentStore, OpaqueIndex, Orama, Schema } from "@orama/orama/dist/types";
 
 import BlogPost, { LoadedArticle } from "./BlogPost";
@@ -60,12 +60,7 @@ export default function BlogList() {
                 tags: "string",
                 timestamp: "string",
                 grade_level: "string"
-            },
-            components: {
-                tokenizer: {
-                    stemmer: stemmers.english,
-                },
-            },
+            }
         })
 
         data.forEach(async (value) => {
