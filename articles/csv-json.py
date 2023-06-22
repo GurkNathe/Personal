@@ -54,7 +54,7 @@ def csv_to_json(csvFilePath, jsonFilePath):
         csvReader = csv.DictReader(csvf)
         for row in csvReader:
             row["tags"] = row["tags"].split(", ") 
-            row["grade_level"] = get_stats(f"articles/{row['contentUrl']}.md")
+            row["grade_level"] = get_stats(f"articles/{row['contentUrl']}.html")
             if len(row["timestamp"]) == 0:
                 timestamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
                 row["timestamp"] = timestamp

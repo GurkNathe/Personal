@@ -1,5 +1,23 @@
 [
     {
+        "title": "Pathfinding Algorithms Visualizer",
+        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/astar_maze.gif?raw=true",
+        "summary": "Web demo of the pathfinding algorithm visualizer that I created. ",
+        "contentUrl": "100004",
+        "tags": [
+            "Pathfinding Algorithms",
+            "Python",
+            "Graphs",
+            "Simulations"
+        ],
+        "timestamp": "2023-06-22T11:07:40",
+        "tempThumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/Best-First-Search.gif?raw=true",
+        "grade_level": [
+            "Very Difficult",
+            15
+        ]
+    },
+    {
         "title": "Mobile Phone Privacy",
         "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/421978168020201.jpg?raw=true",
         "summary": "Discusses digital privacy for mobile phones. The main focus is on applications that can enhance your privacy as well as steps you can take to enhance your privacy from the operating system up.",
@@ -14,7 +32,7 @@
         "tempThumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/421978168020201-c.jpg?raw=true",
         "grade_level": [
             "Fairly Difficult",
-            12
+            13
         ]
     },
     {
@@ -69,7 +87,7 @@
         "tempThumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/419297490001201-c.jpg?raw=true",
         "grade_level": [
             "Difficult",
-            14
+            13
         ]
     }
 ]
