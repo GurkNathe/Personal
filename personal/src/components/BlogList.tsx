@@ -47,7 +47,7 @@ export default function BlogList() {
             console.error(err);
         });
         setPosts(clayData.slice(0, pageSize));
-    }, []);
+    }, [clayData, data, pageSize]);
 
     const searchMaker = async (data: LoadedArticle[]): Promise<OramaSearch> => {
         const search = await create({
