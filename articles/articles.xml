@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+    <title>Ethan's Blog</title>
+    <link>https://gurknathe.github.io/Personal/#/rss.xml</link>
+    <description>A catalogue of my various articles.</description>
+    <language>en</language>
+    <copyright>2023 Ethan Krug</copyright>
+    <item>
+        <title>Autonomous Cars – A Solution to the Trolley Problem (Opinion)</title>
+        <link>https://gurknathe.github.io/Personal/#/blog/100005/article</link>
+        <description>An opinion piece on how we should solve the autonomous car Trolley Problem. With autonomous cars becoming a thing of reality, we need to know how they should respond in potentially life-ending scenarios. By what standard, if any, should they adhere to, or what standard of morals/ethics?</description>
+        <author>Ethan Krug</author>
+        <guid>100005</guid>
+        <pubDate>2023-08-12T21:41:28</pubDate>
+        <category>Autonomous Cars</category>
+        <category>Trolley Problem</category>
+        <category>Philosophy</category>
+        <category>AI</category>
+        <category>Artificial Intelligence</category>
+    </item>
+    <item>
+        <title>Pathfinding Algorithms Visualizer</title>
+        <link>https://gurknathe.github.io/Personal/#/blog/100004/article</link>
+        <description>Web demo of the pathfinding algorithm visualizer that I created.</description>
+        <author>Ethan Krug</author>
+        <guid>100004</guid>
+        <pubDate>2023-06-22T11:07:40</pubDate>
+        <category>Pathfinding Algorithms</category>
+        <category>Python</category>
+        <category>Graphs</category>
+        <category>Simulations</category>
+    </item>
+    <item>
+        <title>Mobile Phone Privacy</title>
+        <link>https://gurknathe.github.io/Personal/#/blog/100003/article</link>
+        <description>Discusses digital privacy for mobile phones. The main focus is on applications that can enhance your privacy as well as steps you can take to enhance your privacy from the operating system up.</description>
+        <author>Ethan Krug</author>
+        <guid>100003</guid>
+        <pubDate>2023-05-16T17:19:55</pubDate>
+        <category>Privacy</category>
+        <category>Android</category>
+        <category>FOSS</category>
+        <category>Apps</category>
+    </item>
+    <item>
+        <title>Greek Yogurt Breakfast Mix</title>
+        <link>https://gurknathe.github.io/Personal/#/blog/100002/article</link>
+        <description>This is a recipe for the breakfast that I eat every day. It is a greek yogurt, berry, and oat mixture. It is healthy and a great way to start your morning. </description>
+        <author>Ethan Krug</author>
+        <guid>100002</guid>
+        <pubDate>2023-05-14T20:39:06</pubDate>
+        <category>Food</category>
+        <category>Breakfast</category>
+        <category>Recipe</category>
+        <category>Health</category>
+    </item>
+    <item>
+        <title>Kimchijeon Recipe</title>
+        <link>https://gurknathe.github.io/Personal/#/blog/100001/article</link>
+        <description>This is a recipe for Kimchijeon or Kimchi Pancakes. It is the recipe that I use for making kimchijeon at home when I am craving for it. It is a good social snack or side dish that most people love.</description>
+        <author>Ethan Krug</author>
+        <guid>100001</guid>
+        <pubDate>2023-05-14T20:10:44</pubDate>
+        <category>Food</category>
+        <category>Korean Food</category>
+        <category>Recipe</category>
+        <category>Cooking</category>
+        <category>Side Dish</category>
+    </item>
+    <item>
+        <title>Analysis and Critique of Taylor’s Constant Surveillance State</title>
+        <link>https://gurknathe.github.io/Personal/#/blog/100000/article</link>
+        <description>Discusses the article by James Stacy Taylor called “In Praise of Big Brother: Why We Should Learn to Stop Worrying and Love Government Surveillance” through analysis and critique of the ideas presented. The article by James Stacy Taylor argues that government surveillance can be beneficial for society and that citizens should embrace it rather than fearing it. The central argument circling around the idea of "only those who have something to hide have something to fear". The thesis of this article is to analyze Taylor's argument and critique the viability and potential impacts of a constant surveillance state.</description>
+        <author>Ethan Krug</author>
+        <guid>100000</guid>
+        <pubDate>2023-04-15T16:45:38</pubDate>
+        <category>Philosophy</category>
+        <category>Privacy & Surveillance</category>
+        <category>Mental Health</category>
+        <category>Government Corruption</category>
+    </item>
+</channel>
+</rss>

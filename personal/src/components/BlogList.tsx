@@ -15,7 +15,7 @@ import { OpaqueDocumentStore, OpaqueIndex, Orama, Schema } from "@orama/orama/di
 import BlogPost, { LoadedArticle } from "./BlogPost";
 
 import {
-    CustomProgress,
+    Loader,
     PageSizeSelect,
     SearchField,
     SelectForm
@@ -139,7 +139,7 @@ export default function BlogList() {
             <Suspense
                 fallback={
                     <div style={{ display: "flex" }}>
-                        <CustomProgress />
+                        <Loader />
                     </div>
                 }
             >
@@ -192,7 +192,13 @@ export default function BlogList() {
                             <div style={{ padding: "10px" }}></div>
                         }
                     </> :
-                    <div>No available posts.</div>
+                    <>
+                        {data ?
+                            <Loader/> :
+                            <div>No available posts.</div>
+                        }
+                    </>
+                    
                 }
             </Suspense>
         </div>

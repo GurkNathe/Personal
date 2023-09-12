@@ -4,6 +4,8 @@ import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Text3D } from "@react-three/drei";
 import { BackSide, Mesh, TextureLoader } from "three";
 
+import { Loader } from "./CustomComponent";
+
 import "../css/home.css";
 
 const Background = () => {
@@ -111,19 +113,6 @@ export function Donut() {
             <pre ref={donut} className="center">test</pre>
         </div>
     )
-}
-
-const Loader = () => {
-    return(
-        <svg className="loader" xmlns="http://www.w3.org/2000/svg" width="200" height="200">
-            <path d="M 100, 100 Q 120,80 140, 100 L 130,120 Q 120,140 110,120 Z" fill="pink" stroke="black" stroke-width="1"/>
-            <path d="M 100, 100 Q 120,80 140, 100 L 130,120 Q 120,140 110,120 Z" fill="pink" stroke="black" stroke-width="1" transform="rotate(72, 100, 100)"/>
-            <path d="M 100, 100 Q 120,80 140, 100 L 130,120 Q 120,140 110,120 Z" fill="pink" stroke="black" stroke-width="1" transform="rotate(144, 100, 100)"/>
-            <path d="M 100, 100 Q 120,80 140, 100 L 130,120 Q 120,140 110,120 Z" fill="pink" stroke="black" stroke-width="1" transform="rotate(216, 100, 100)"/>
-            <path d="M 100, 100 Q 120,80 140, 100 L 130,120 Q 120,140 110,120 Z" fill="pink" stroke="black" stroke-width="1" transform="rotate(288, 100, 100)"/>
-            <circle cx="100" cy="100" r="10" fill="yellow" stroke="black" stroke-width="1"/>
-        </svg>
-    );
 }
 
 export default function Home() {

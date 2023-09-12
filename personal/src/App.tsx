@@ -12,14 +12,15 @@ import BlogList, { articleLoader } from "./components/BlogList";
 import Home, { Donut } from "./components/Home";
 import Error404 from "./components/404";
 import SideBar from "./components/SideBar";
+import RSSFeed from "./components/RSSFeed";
 
 import "./css/root.css";
 
 export default function App() {
     const Root = () => {
         return (
-            <div className="root">
-                <SideBar/>
+            <div className={window.location.hash === "#/rss.xml" ? "" : "root"}>
+                {window.location.hash === "#/rss.xml" ? <></> : <SideBar/>}
                 <Outlet/>
             </div>
         );
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/about-me" element={<AboutMe />}/>
             <Route path="/blog" element={<BlogList />} loader={articleLoader}/>
             <Route path="/blog/:contentUrl/article" element={<BlogArticle />} loader={({ params }) => articleTextLoader(params.contentUrl)} />
+            <Route path="/rss.xml" element={<RSSFeed/>} loader={articleLoader}/>
             <Route path="*" element={<Error404/>}/>
         </Route>
     );
