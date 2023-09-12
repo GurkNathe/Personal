@@ -13,6 +13,7 @@ export const articleLoader = async (): Promise<any> => {
 export default function RSSFeed() {
     const data = useLoaderData() as LoadedArticle[];
     const [xml, setXML] = useState<string>("");
+    const parser = new DOMParser();
 
     useEffect(() => {
         let feed = new RSS({
@@ -37,10 +38,11 @@ export default function RSSFeed() {
 
         setXML(feed.createXML());
     }, [data]);
-
+    var test = xml.length > 0 ? parser.parseFromString(xml, "application/xml") : undefined;
+    console.log(test);
     return(
-        <div>
+        <pre>
             {xml}
-        </div>
+        </pre>
     )
 }

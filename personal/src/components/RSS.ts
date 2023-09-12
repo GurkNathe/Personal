@@ -30,7 +30,7 @@ export default class RSS {
     }
 
     createXML() : string {
-        let xml = `<?xml version="1.0" encoding="UTF-8" ?>\n<rss version="2.0">\n<channel>\n`;
+        let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n<channel>\n`;
 
         xml +=  this.createTag("title", this.options.title) + 
                 this.createTag("link", this.options.url) +
@@ -43,7 +43,7 @@ export default class RSS {
         })
 
         xml += "</channel>\n</rss>";
-        console.log(xml)
+
         return xml;
     }
 
