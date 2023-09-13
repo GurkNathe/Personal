@@ -14,6 +14,7 @@ export interface RSSItem {
     categories: string[];
     author: string;
     date: string;
+    imageUrl: string;
 }
 
 export default class RSS {
@@ -56,7 +57,8 @@ export default class RSS {
                     this.createTag("author", item.author) + 
                     this.createTag("guid", item.guid) + 
                     this.createTag("pubDate", item.date);
-                    //this.createTag("enclosure", item.imageUrl);
+        
+        rssItem += `<enclosure url="${item.imageUrl}" length="0" type="image/jpg"/>`;
 
         item.categories.forEach((category: string) => {
             rssItem += this.createTag("category", category);

@@ -35,7 +35,8 @@ export default function RSSFeed() {
                 guid: item.contentUrl,
                 categories: item.tags,
                 author: 'Ethan Krug',
-                date: item.timestamp
+                date: item.timestamp,
+                imageUrl: item.thumbnailUrl
             });
         })
 
