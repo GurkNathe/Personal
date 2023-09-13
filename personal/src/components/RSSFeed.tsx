@@ -44,10 +44,11 @@ export default function RSSFeed() {
     }, [data, parser]);
 
     return(
-        <div>
+        <div style={{ margin: "10px" }}>
             <a href={process.env.PUBLIC_URL + "/resources/articles.xml"} target="_blank" rel="noreferrer">
                 Go To Feed
             </a>
+            <br/>
             <br/>
             {
                 xml ? 
