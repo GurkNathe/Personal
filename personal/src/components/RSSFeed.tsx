@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { LoadedArticle } from "./BlogPost";
 
@@ -12,8 +12,11 @@ export const articleLoader = async (): Promise<any> => {
 
 export default function RSSFeed() {
     const data = useLoaderData() as LoadedArticle[];
-    const [xml, setXML] = useState<string>("");
-    const parser = new DOMParser();
+    const [xml, setXML] = useState<Document>();
+    const parser = useMemo(() => {
+        return new DOMParser();
+    }, []);
+    const serial = new XMLSerializer();
 
     useEffect(() => {
         let feed = new RSS({
@@ -36,13 +39,22 @@ export default function RSSFeed() {
             });
         })
 
-        setXML(feed.createXML());
-    }, [data]);
-    var test = xml.length > 0 ? parser.parseFromString(xml, "application/xml") : undefined;
-    console.log(test);
+        setXML(parser.parseFromString(feed.createXML(), "application/xml"));
+    }, [data, parser]);
+
     return(
-        <pre>
-            {xml}
-        </pre>
+        <div>
+            <a href={process.env.PUBLIC_URL + "/resources/articles.xml"} target="_blank" rel="noreferrer">
+                Go To Feed
+            </a>
+            <br/>
+            {
+                xml ? 
+                <a href={URL.createObjectURL(new Blob([serial.serializeToString(xml!)], { type: 'text/xml' }))} download="articles.xml" target="_blank" rel="noreferrer">
+                    Download Feed
+                </a> :
+                <></>
+            }
+        </div>
     )
 }

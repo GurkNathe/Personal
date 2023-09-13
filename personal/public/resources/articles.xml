@@ -2,7 +2,7 @@
 <rss version="2.0">
 <channel>
     <title>Ethan's Blog</title>
-    <link>https://gurknathe.github.io/Personal/#/rss.xml</link>
+    <link>https://gurknathe.github.io/Personal/#/blog/</link>
     <description>A catalogue of my various articles.</description>
     <language>en</language>
     <copyright>2023 Ethan Krug</copyright>
