@@ -1,59 +1,115 @@
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { OrbitControls, Text3D } from "@react-three/drei";
-import { BackSide, Mesh, TextureLoader } from "three";
-
 import { Loader } from "./CustomComponent";
 
 import "../css/home.css";
 
-const Background = () => {
-    const bg_array: string[] = [
-        "resources/snowy-mountain-c.jpg",
-        "resources/plum-blossom-path-c.jpg",
-        "resources/plum-blossom-temple-c.jpg",
-        "resources/mountain-river-c.jpg",
-        "resources/desert-ruins-c.jpg",
-        "resources/magic-jungle-c.jpg",
-        "resources/cyberpunk-c.jpg",
-        "resources/temple-peak-c.jpg",
-        "resources/future-city-c.jpg",
-        "resources/fjords-c.jpg",
-        "resources/mesa-c.jpg",
-        "resources/cliffside-c.jpg",
-        "resources/fantasy-islands-c.jpg",
-        "resources/shrub-river-c.jpg",
-        "resources/plateau-river-c.jpg",
-    ];
+// TODO: Handle zoom in/out of page
 
-    const bg = useLoader(TextureLoader, bg_array[Math.floor(Math.random() * bg_array.length)]);
+const Welcome = () => {
+    const stringGen = (len: Number) => {
+        let text: string = "";
+        const chars: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    
+        for (let i = 0; i < len; i++) {
+            text += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+    
+        return text;
+    }
 
-    const sphere_mesh = useRef<Mesh>(null!);
+    const letters: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+-=[]{};':\",./<>?`~";
 
-    let size: number = -8.3 * Math.pow(Math.log((window.innerWidth / 100) - 2), -1);
+    const textLoad = (speed: number = 10, original: string = "Welcome", setText: React.Dispatch<React.SetStateAction<string>>): void => {
+        let finalName = "";
+        let iterations = 0;
+    
+        const interval = setInterval(() => {
+            let newLetter = letters[Math.floor(Math.random() * letters.length)];
+    
+            if (iterations % 10 === 0) {
+                finalName += original.charAt(iterations / 10)
+                setText(finalName);
+            } else {
+                setText(finalName + newLetter);
+            }
+    
+            if (finalName === original) {
+                clearInterval(interval);
+            }
+    
+            iterations++;
+        }, speed)
+    }
 
-    useFrame(({ clock }) => {
-        sphere_mesh.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.05;
-        sphere_mesh.current.rotation.y = clock.getElapsedTime() * 0.05;
-    });
+    const nameHover = (value: string, original: string = "Welcome", setText: React.Dispatch<React.SetStateAction<string>>): void => {
+        let iterations = 0;
+    
+        const interval = setInterval(() => {
+            let newText = value.split("")
+                .map((_, index) => {
+                    if (index < iterations || (original[index] === " " && window.innerWidth <= 496)) {
+                        return original[index];
+                    }
+    
+                    return letters[Math.floor(Math.random() * letters.length)]
+                })
+                .join("");
+    
+            setText(newText);
+    
+            if (iterations > original.length - 1) {
+                clearInterval(interval);
+            }
+    
+            iterations += ((1 + Math.sqrt(5)) / 2) - 1;
+        }, 30);
+    }
+
+    const [bg_text, setBGText] = useState<string>(stringGen(10000));
+    const [center_text, setCText] = useState<string>("");
+
+    useEffect(() => {
+        textLoad(10, "Welcome", setCText);
+    }, []);
+
+    const handleMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.Touch) => {
+        const main : HTMLElement = document.querySelector(".bg-text") as HTMLElement;
+        main.style.setProperty("--x", `${e.clientX}px`);
+        main.style.setProperty("--y", `${e.clientY}px`);
+
+        setBGText(stringGen(10000))
+    }
+
+    const handleClick = () => {
+        // take to option page for about-me and blog
+        console.log("hello")
+    }
 
     return(
-        <>
-            <ambientLight intensity={1} />
-            <mesh ref={sphere_mesh}>
-                <sphereGeometry args={[32, 32, 32]}/>
-                <meshStandardMaterial map={bg} side={BackSide}/>
-                <mesh position={[-3, -0.5, size]}>
-                    <Text3D font={"resources/Inter_Regular.json"}>
-                        Welcome!
-                        <meshStandardMaterial color="#181818"/>
-                        <directionalLight position={[0,1,1]}/>
-                    </Text3D>
-                </mesh>
-            </mesh>
-        </>
-    );
+        <div className="welcome-top" onMouseMove={(e) => handleMove(e)} onTouchMove={(e) => handleMove(e.touches[0])}>
+            <div className="bg-gradient"/>
+            <div className="bg-text">
+                <div className="welcome-text">
+                    <span 
+                        className="welcome-text-inner"
+                        onMouseEnter={() => {
+                            if (center_text === "Welcome") {
+                                textLoad(10, "Click Me!", setCText);
+                            }
+                            if (center_text === "Click Me!") {
+                                nameHover(center_text, "Click Me!", setCText);
+                            }
+                        }}
+                        onClick={handleClick}
+                    >
+                        {center_text}
+                    </span>
+                </div>
+                {bg_text}
+            </div>
+        </div>
+    )
 }
 
 export function Donut() {
@@ -107,10 +163,16 @@ export function Donut() {
         if (donut) setInterval(asciiframe, 100);
     }, [asciiframe, donut]);
 
+    const handleClick = () => {
+        // take to option page for about-me and blog
+        console.log("hello")
+    }
+
     return (
         <div className="container">
             <span className="welcome">Welcome!</span>
-            <pre ref={donut} className="center">test</pre>
+            <pre ref={donut} className="center" onClick={handleClick}>test</pre>
+            <span className="welcome">Click the donut.</span>
         </div>
     )
 }
@@ -124,12 +186,7 @@ export default function Home() {
                 </div>
             }
         >
-            <Canvas
-                camera={{ fov: 70, near: 0.01, far: 100, position: [0, 0, 1] }}
-            >
-                <OrbitControls enableZoom={false} rotateSpeed={0.3}/>
-                    <Background/>
-            </Canvas>
+            <Welcome/>
         </Suspense>
     );
 }

@@ -3,7 +3,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 64px;
     background-image: radial-gradient(circle at top left, #19FFE0, #B33600);
     overflow-y: auto;
     overflow-x: hidden;

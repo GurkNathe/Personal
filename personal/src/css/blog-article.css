@@ -3,7 +3,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 64px;
     padding-top: 20px;
     padding-bottom: 20px;
     background-image: radial-gradient(circle at top left, #0122F5, #F5D469);

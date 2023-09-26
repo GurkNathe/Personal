@@ -144,15 +144,19 @@
     It is based on Chromium, the software behind Google Chrome, so the interface 
     will be familiar to people switching over from there. Additionally, it comes 
     hardened out-of-the-box, so you can feel more secure that you aren't being 
-    tracked at all times.
+    tracked at all times. However, as of writing this, Bromite is currently many
+    months behind the release for the upstream code of Chromium. It doesn't 
+    necessarily mean Bromite is less secure, it just increases the risk in usage 
+    if an exploit is found for the version of Chromium it is based on.
 </p>
 <p>
     If you're looking for a non-Chormium based browser for Android, my recommendation
     would be the <a href="https://f-droid.org/en/packages/us.spotco.fennec_dos/">Mull browser</a>.
     As their description states: "This is a privacy oriented and deblobbed web browser 
     based on Mozilla technology. It enables many features upstreamed by the Tor 
-    Uplift project using preferences from the arkenfox-user.js project." One of the
-    best features of the browser (like most mobile Firefox based browsers) is add-ons. 
+    Uplift project using preferences from the arkenfox-user.js project." What this means
+    is that, like Bromite, Mull comes hardened out of the box. One of the best features 
+    of the browser (like most mobile Firefox based browsers) is add-ons. 
     You can use add-ons like uBlock Origin, which Mull recommends, as well as add-ons 
     like NoScript, Privacy Badger, ClearURLs, and Decentraleyes, among others. 
 </p>
@@ -202,14 +206,30 @@
     If you can convince your recipients to download the same apps as you 
     <a href="https://www.privacytools.io/privacy-messaging">this list</a> covers the 
     best options for you. Signal and Session are the two messaging apps that have worked 
-    best for me. However, if you can't get your receiver to use your flavor of messaging 
-    app, what's the best option?
+    best for me. Of the two, I would choose Signal for a couple reasons. One, they now
+    use post-quantum encryption in their messaging protocal. Two, they don't store any
+    of your data. The only information they have about you is date of account creation,
+    and data of last connection to their servers; no messages, groups, contacts, etc. 
+    are stored by them. For these main reasons, I recommend Signal, along with it being
+    very user-friendly. However, if you can't get your receiver to use your flavor of 
+    messaging app, what's the best option?
 </p>
 <p>
     If you can't use the same application, your messages aren't going to be encrypted. 
     While it will be less private, the best option in my opinion is the SMS Messenger 
     from the <a href="https://www.simplemobiletools.com/">Simple Mobile Tools collection</a>. 
-    It has no fluff, no flavor of spyware built in, it's just that, a simple SMS messenger.
+    It has no fluff, no flavor of spyware built in, it's just that, a simple SMS messenger. 
+    However, I've found that it doesn't do well at reading old messages. So, messages older
+    than a certain amount of time won't be visible, save for some images and jumbled messages.
+</p>
+<p>
+    Another messaging app that I found in the same category is QKSMS. Unlike SMS Messenger, 
+    historical messages are displayed properly, and the UI uses a "modern design". There are 
+    additional quality of life features like backup and restoring, scheduling messages, and 
+    archiving messages. You can download QKSMS from <a href="https://f-droid.org/packages/com.moez.QKSMS/">F-Droid</a>
+    and from the <a href="https://play.google.com/store/apps/details?id=com.moez.QKSMS">Google Play Store</a>.
+    However, a downside that I found is the inability to send media without the image quality
+    degrading. SMS Messenger performed fine in this regard.
 </p>
 <h4>Email</h4>
 <p>

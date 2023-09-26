@@ -19,20 +19,19 @@ import "./css/root.css";
 export default function App() {
     const Root = () => {
         return (
-            <div className={window.location.hash === "#/rss.xml" ? "" : "root"}>
-                {window.location.hash === "#/rss.xml" ? <></> : <SideBar/>}
+            <div className={window.location.hash === "#/rss" ? "" : "root"}>
                 <Outlet/>
             </div>
         );
     };
 
     const routes = createRoutesFromElements(
-        <Route path="/" element={<Root />} >
+        <Route path="/"  >
             <Route index path="/" element={<Home />} errorElement={<Donut/>}/>
             <Route path="/about-me" element={<AboutMe />}/>
             <Route path="/blog" element={<BlogList />} loader={articleLoader}/>
             <Route path="/blog/:contentUrl/article" element={<BlogArticle />} loader={({ params }) => articleTextLoader(params.contentUrl)} />
-            <Route path="/rss.xml" element={<RSSFeed/>} loader={articleLoader}/>
+            <Route path="/rss" element={<RSSFeed/>} loader={articleLoader}/>
             <Route path="*" element={<Error404/>}/>
         </Route>
     );
