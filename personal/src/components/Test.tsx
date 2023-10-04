@@ -17,20 +17,18 @@ import SortSharpIcon from '@mui/icons-material/SortSharp';
 
 import { Link } from "react-router-dom";
 
-import "../css/sidebar.css";
+import "../css/test.css";
 
 interface BarProps {
     blur: boolean;
-    top: number;
-    left: number;
 }
 
-export default function SideBar({ blur, top, left }: BarProps) {
+export default function Test({ blur }: BarProps) {
     const [open, toggleDrawer] = useState<boolean>(false);
 
     const barItem = (text: string, icon: React.ReactNode, page: string, toggle: Function): JSX.Element => (
         <ListItem>
-            <Link className="bar-link" to={page}>
+            <Link className="link" to={page}>
                 <ListItemButton onClick={() => toggle(false)}>
                     <ListItemIcon>
                         {icon}
@@ -50,7 +48,6 @@ export default function SideBar({ blur, top, left }: BarProps) {
     const StyledButton = styled(Button)(() => ({
         opacity: open ? 0 : 1,
         visibility: open ? "hidden" : "visible",
-        color: "white",
         backgroundColor: "#181818",
         "&:hover": {
             backgroundColor: blur ? "" : "#686868"
@@ -59,33 +56,21 @@ export default function SideBar({ blur, top, left }: BarProps) {
     }))
 
     return(
-        <div 
-            className="drawer"
-            style={{
-                top: `${top}px`, 
-                left: `${left}px` 
-            }}
-        >
+        <div className="tdrawer">
             <StyledButton onClick={() => toggleDrawer(true)} aria-label="Open Navigation Bar">
                 <SortSharpIcon className="button-icon"/>
             </StyledButton>
-            <div 
-                className="bar" 
-                style={{ 
-                    opacity: !open ? 0 : 1, 
-                    visibility: open ? 'visible' : 'hidden'
-                }}
-            >
-                <div className="open">
-                    <div className="bar-list">
+            <div className="test" style={{ opacity: !open ? 0 : 1, visibility: open ? 'visible' : 'hidden' }}>
+                <div className="topen">
+                    <div className="tlist">
                         <List>
                             {barItem("Home", <HouseRoundedIcon htmlColor="#fff"/>, "/", toggleDrawer)}
                             {barItem("About Me", <PersonIcon htmlColor="#fff"/>, "/about-me", toggleDrawer)}
                             {barItem("Blog", <MessageIcon htmlColor="#fff"/>, "/blog", toggleDrawer)}
                         </List>
                     </div>
-                    <div className="bar-links">
-                        <Grid container className="bar-links-grid">
+                    <div className="tlinks">
+                        <Grid container className="tlinks-grid">
                             <Grid item xs={5}>
                                 <MuiLink href="https://github.com/GurkNathe/" color="inherit">
                                     GitHub
@@ -104,7 +89,7 @@ export default function SideBar({ blur, top, left }: BarProps) {
                         </Grid>
                     </div>
                 </div>
-                <div className='fade' onClick={() => handleClickAway()}></div>
+                <div className='tfade' onClick={() => handleClickAway()}></div>
             </div>
         </div>
     );

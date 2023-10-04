@@ -7,3 +7,16 @@
     filter: blur(0px);
     transition: filter 0.5s linear;
 }
+
+.loader {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}

@@ -13,6 +13,7 @@ import { create, insert, search } from "@orama/orama";
 import { OpaqueDocumentStore, OpaqueIndex, Orama, Schema } from "@orama/orama/dist/types";
 
 import BlogPost, { LoadedArticle } from "./BlogPost";
+import SideBar from "./SideBar";
 
 import {
     Loader,
@@ -119,88 +120,93 @@ export default function BlogList() {
     };
 
     return (
-        <div className="list">
-            <StyledEngineProvider injectFirst>
-                <SearchField
-                    className="search"
-                    margin="dense"
-                    placeholder="Search..."
-                    value={searchValue}
-                    onChange={(event) => onSearch(event.target.value)}
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchRoundedIcon />
-                            </InputAdornment>
-                        )
-                    }}
-                />
-            </StyledEngineProvider>
-            <Suspense
-                fallback={
-                    <div style={{ display: "flex" }}>
-                        <Loader />
-                    </div>
-                }
-            >
-                {posts.length > 0 ?
-                    <>
-                        {pageSize < clayData.length ?
-                            <Pagination
-                                className="pages"
-                                page={page + 1}
-                                count={Math.ceil(clayData.length / pageSize)}
-                                onChange={(_, value) => onPageChange(value - 1)}
-                            /> :
-                            <div style={{ padding: "10px" }}></div>
-                        }
-                        {posts.map((datum, index) => (
-                            <BlogPost
-                                key={index}
-                                title={datum.title}
-                                thumbnailUrl={datum.thumbnailUrl}
-                                tempThumbnailUrl={datum.tempThumbnailUrl}
-                                summary={datum.summary}
-                                contentUrl={datum.contentUrl}
-                                tags={datum.tags}
-                                timestamp={datum.timestamp}
-                                grade_level={datum.grade_level}
-                            />
-                        ))}
-                        {data.length > 5 ? 
-                            <SelectForm className="page-size" size="small">
-                                <InputLabel>Page Size</InputLabel>
-                                <PageSizeSelect
-                                    value={String(pageSize)}
-                                    onChange={(event) => changePageSize(event)}
-                                >
-                                    <MenuItem value={5}>Five</MenuItem>
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={15}>Fifteen</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </PageSizeSelect>
-                            </SelectForm> : null
-                        }
-                        {pageSize < clayData.length ?
-                            <Pagination
-                                className="pages"
-                                page={page + 1}
-                                count={Math.ceil(clayData.length / pageSize)}
-                                onChange={(_, value) => onPageChange(value - 1)}
-                            /> :
-                            <div style={{ padding: "10px" }}></div>
-                        }
-                    </> :
-                    <>
-                        {data ?
-                            <Loader/> :
-                            <div>No available posts.</div>
-                        }
-                    </>
-                    
-                }
-            </Suspense>
+        <div className="blog">
+            <div className="blog-nav">
+                <SideBar blur={false} top={20} left={10} />
+            </div>
+            <div className="list">
+                <StyledEngineProvider injectFirst>
+                    <SearchField
+                        className="search"
+                        margin="dense"
+                        placeholder="Search..."
+                        value={searchValue}
+                        onChange={(event) => onSearch(event.target.value)}
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchRoundedIcon />
+                                </InputAdornment>
+                            )
+                        }}
+                    />
+                </StyledEngineProvider>
+                <Suspense
+                    fallback={
+                        <div style={{ display: "flex" }}>
+                            <Loader />
+                        </div>
+                    }
+                >
+                    {posts.length > 0 ?
+                        <>
+                            {pageSize < clayData.length ?
+                                <Pagination
+                                    className="pages"
+                                    page={page + 1}
+                                    count={Math.ceil(clayData.length / pageSize)}
+                                    onChange={(_, value) => onPageChange(value - 1)}
+                                /> :
+                                <div style={{ padding: "10px" }}></div>
+                            }
+                            {posts.map((datum, index) => (
+                                <BlogPost
+                                    key={index}
+                                    title={datum.title}
+                                    thumbnailUrl={datum.thumbnailUrl}
+                                    tempThumbnailUrl={datum.tempThumbnailUrl}
+                                    summary={datum.summary}
+                                    contentUrl={datum.contentUrl}
+                                    tags={datum.tags}
+                                    timestamp={datum.timestamp}
+                                    grade_level={datum.grade_level}
+                                />
+                            ))}
+                            {data.length > 5 ? 
+                                <SelectForm className="page-size" size="small">
+                                    <InputLabel>Page Size</InputLabel>
+                                    <PageSizeSelect
+                                        value={String(pageSize)}
+                                        onChange={(event) => changePageSize(event)}
+                                    >
+                                        <MenuItem value={5}>Five</MenuItem>
+                                        <MenuItem value={10}>Ten</MenuItem>
+                                        <MenuItem value={15}>Fifteen</MenuItem>
+                                        <MenuItem value={20}>Twenty</MenuItem>
+                                        <MenuItem value={30}>Thirty</MenuItem>
+                                    </PageSizeSelect>
+                                </SelectForm> : null
+                            }
+                            {pageSize < clayData.length ?
+                                <Pagination
+                                    className="pages"
+                                    page={page + 1}
+                                    count={Math.ceil(clayData.length / pageSize)}
+                                    onChange={(_, value) => onPageChange(value - 1)}
+                                /> :
+                                <div style={{ padding: "10px" }}></div>
+                            }
+                        </> :
+                        <>
+                            {data ?
+                                <Loader/> :
+                                <div>No available posts.</div>
+                            }
+                        </>
+                        
+                    }
+                </Suspense>
+            </div>
         </div>
     );
 }

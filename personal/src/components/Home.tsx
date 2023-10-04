@@ -1,10 +1,12 @@
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 import { Loader } from "./CustomComponent";
+import SideBar from "./SideBar";
 
 import "../css/home.css";
 
-// TODO: Handle zoom in/out of page
+// TODO: Handle zoom in/out of page for Welcome component
 
 const Welcome = () => {
     const stringGen = (len: Number) => {
@@ -68,6 +70,7 @@ const Welcome = () => {
 
     const [bg_text, setBGText] = useState<string>(stringGen(10000));
     const [center_text, setCText] = useState<string>("");
+    const nav = useNavigate();
 
     useEffect(() => {
         textLoad(10, "Welcome", setCText);
@@ -83,7 +86,7 @@ const Welcome = () => {
 
     const handleClick = () => {
         // take to option page for about-me and blog
-        console.log("hello")
+        nav("/test");
     }
 
     return(
@@ -115,6 +118,8 @@ const Welcome = () => {
 export function Donut() {
     const [ab, setAB] = useState<number[]>([1, 1]);
     const donut = useRef<HTMLPreElement>(null!);
+    const song = new Audio(process.env.PUBLIC_URL + "/resources/funky-town-(low-quality)-made-with-Voicemod-technology.mp3");
+
 
     const asciiframe = useCallback(async (): Promise<void> => {
         let nums : number[] = ab
@@ -164,12 +169,11 @@ export function Donut() {
     }, [asciiframe, donut]);
 
     const handleClick = () => {
-        // take to option page for about-me and blog
-        console.log("hello")
+        song.play();
     }
 
-    return (
-        <div className="container">
+return (
+    <div className="container">
             <span className="welcome">Welcome!</span>
             <pre ref={donut} className="center" onClick={handleClick}>test</pre>
             <span className="welcome">Click the donut.</span>
@@ -186,6 +190,7 @@ export default function Home() {
                 </div>
             }
         >
+            <SideBar blur={true} top={0} left={0} />
             <Welcome/>
         </Suspense>
     );

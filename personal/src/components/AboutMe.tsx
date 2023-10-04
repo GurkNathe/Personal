@@ -11,6 +11,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import "../css/about-me.css"
+import SideBar from "./SideBar";
 
 export default function AboutMe() {
     const letters: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+-=[]{};':\",./<>?`~";
@@ -69,6 +70,7 @@ export default function AboutMe() {
 
     return (
         <div className="aboutme">
+            <SideBar blur={false} top={10} left={10}/>
             <Paper className="me-paper">
                 <div className="paper-div">
                     <h1

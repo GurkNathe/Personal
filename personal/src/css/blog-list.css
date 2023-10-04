@@ -3,9 +3,12 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-image: radial-gradient(circle at top left, #19FFE0, #B33600);
+    background-color: #19FFE0;
     overflow-y: auto;
     overflow-x: hidden;
+    min-height: 100vh;
+    padding-left: 20px; 
+    padding-right: 20px; 
 }
 
 .list::-webkit-scrollbar {
@@ -27,7 +30,7 @@
 }
 
 .search {
-    width: 90%;
+    width: 100%;
     margin: 10px;
     border-radius: 5px;
     background: #fff;
@@ -44,4 +47,17 @@
     width: 120px;
     min-width: 120px;
     margin-bottom: 10px;
+}
+
+.blog {
+    display: flex;
+    flex-direction: row;
+}
+
+.blog-nav {
+    width: 100px;    
+    background-color: #19FFE0;
+    flex-grow: 1;
+    min-height: 100vh;
+    overflow: auto;
 }
