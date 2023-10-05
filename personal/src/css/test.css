@@ -1,64 +1,71 @@
 :root {
-    --bar-color: #181818;
+    --padding-size: 20px;
 }
 
-.test {
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    z-index: 1200;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 225ms cubic-bezier(0, 0, 0.2, 1), visibility 225ms cubic-bezier(0, 0, 0.2, 1);
+.about-me-name {
+    font-size: 4rem;
+    font-family: "Space Mono", monospace;
 }
 
-.topen {
+/* Sections CSS */
+
+.about-me-header {
+    background-color: #313131;
+}
+
+.about-me-intro {    
+    padding: var(--padding-size);
+    background-color: #086891;
+}
+
+.about-me-skills {
+    padding: var(--padding-size);
+    background-color: #24858f;
+}
+
+.about-me-react {
+    padding: var(--padding-size);
+    background-color: #3ca089;
+}
+
+.about-me-info {
+    padding: var(--padding-size);
+    background-color: #55bc80;
+}
+
+.about-me-links {
+    padding: var(--padding-size);
+    background-color: #6ed871;
+}
+
+/* Sections' Header CSS */
+
+.about-me-skills-header {
+    font-size: 2rem;
+    font-family: "Space Mono", monospace;
+}
+
+.about-me-react-header {
+    font-size: 2rem;
+    font-family: "Space Mono", monospace;
+}
+
+.about-me-info-header {
+    font-size: 2rem;
+    font-family: "Space Mono", monospace;
+}
+
+.about-me-links-header {
+    font-size: 2rem;
+    font-family: "Space Mono", monospace;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    height: 100%;
-    width: 200px;
-    padding: 0 0 0 10px;
-    background-color: var(--bar-color);
 }
 
-.tfade {
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(90deg, var(--bar-color) 10%, transparent);
-}
-
-.tbutton-icon {
-    color: #fff;
-}
-
-.tbutton {
+.about-me-links-container {
     display: flex;
-    background: var(--bar-color);
-}
-
-.tlist {
-    height: 95%;
-}
-
-.tdrawer {
-    display: flex;
-    align-items: flex-start;
-    position: absolute;
-    height: auto;
-}
-
-.tlinks {
-    background: var(--bar-color);
-    color: #ffffff;
-}
-
-.tlinks-grid {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }

@@ -23,7 +23,7 @@ export default function App() {
             <Route path="/blog" element={<BlogList />} loader={articleLoader}/>
             <Route path="/blog/:contentUrl/article" element={<BlogArticle />} loader={({ params }) => articleTextLoader(params.contentUrl)} />
             <Route path="/rss" element={<RSSFeed/>} loader={articleLoader}/>
-            <Route path="/test" element={<Test blur={false}/>}/>
+            <Route path="/test" element={<Test/>}/>
             <Route path="*" element={<Error404 />}/>
         </Route>
     );

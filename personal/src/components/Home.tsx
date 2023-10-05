@@ -6,8 +6,6 @@ import SideBar from "./SideBar";
 
 import "../css/home.css";
 
-// TODO: Handle zoom in/out of page for Welcome component
-
 const Welcome = () => {
     const stringGen = (len: Number) => {
         let text: string = "";
@@ -68,7 +66,7 @@ const Welcome = () => {
         }, 30);
     }
 
-    const [bg_text, setBGText] = useState<string>(stringGen(10000));
+    const [bg_text, setBGText] = useState<string>(stringGen(20000));
     const [center_text, setCText] = useState<string>("");
     const nav = useNavigate();
 
@@ -81,7 +79,7 @@ const Welcome = () => {
         main.style.setProperty("--x", `${e.clientX}px`);
         main.style.setProperty("--y", `${e.clientY}px`);
 
-        setBGText(stringGen(10000))
+        setBGText(stringGen(20000))
     }
 
     const handleClick = () => {
@@ -182,6 +180,8 @@ return (
 }
 
 export default function Home() {
+    const [chance] = useState(Math.random())
+
     return(
         <Suspense 
             fallback={
@@ -190,8 +190,8 @@ export default function Home() {
                 </div>
             }
         >
-            <SideBar blur={true} top={0} left={0} />
-            <Welcome/>
+            <SideBar blur={true} top={5} left={0} />
+            { chance > 0.01 ? <Welcome/> : <Donut/> }
         </Suspense>
     );
 }
