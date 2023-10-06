@@ -1,5 +1,6 @@
 .article-page {
     width: 100%;
+    min-height: 100vh;
     background-image: radial-gradient(circle at top left, #0122F5, #F5D469);
 }
 
