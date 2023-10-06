@@ -58,6 +58,8 @@
     -moz-user-select: none;
 
     mix-blend-mode: normal;
+
+    overflow: hidden;
 }
 
 .welcome-text {

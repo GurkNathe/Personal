@@ -69,11 +69,8 @@ function Welcome({ setClicked }: WelcomeClicked) {
         }, 30);
     }
 
-    const bg_len =  window.screen.height > 900 ? 
-                    window.screen.height > 1000 ? 
-                    window.screen.height > 1200 ? 
-                    window.screen.height > 1500 ? 
-                    40000: 30000 : 20000 : 10000 : 7000;
+    const wsh = window.screen.height;
+    const bg_len =  wsh >= 1500 ? 40000 : (wsh >= 1200 ? 30000 : (wsh >= 1000 ? 20000 : (wsh >= 850 ? 10000 : 7000)));
 
     const [bg_text, setBGText] = useState<string>(stringGen(bg_len));
     const [center_text, setCText] = useState<string>("");
