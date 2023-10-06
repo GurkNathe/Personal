@@ -1,12 +1,15 @@
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom"
 
 import { Loader } from "./CustomComponent";
 import SideBar from "./SideBar";
 
 import "../css/home.css";
 
-const Welcome = () => {
+interface WelcomeClicked {
+    setClicked: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Welcome({ setClicked }: WelcomeClicked) {
     const stringGen = (len: Number) => {
         let text: string = "";
         const chars: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -68,7 +71,6 @@ const Welcome = () => {
 
     const [bg_text, setBGText] = useState<string>(stringGen(20000));
     const [center_text, setCText] = useState<string>("");
-    const nav = useNavigate();
 
     useEffect(() => {
         textLoad(10, "Welcome", setCText);
@@ -83,8 +85,7 @@ const Welcome = () => {
     }
 
     const handleClick = () => {
-        // take to option page for about-me and blog
-        nav("/test");
+        setClicked(true);
     }
 
     return(
@@ -168,19 +169,20 @@ export function Donut() {
 
     const handleClick = () => {
         song.play();
-    }
+    };
 
-return (
-    <div className="container">
+    return (
+        <div className="container">
             <span className="welcome">Welcome!</span>
-            <pre ref={donut} className="center" onClick={handleClick}>test</pre>
-            <span className="welcome">Click the donut.</span>
+            <pre ref={donut} className="center" onClick={handleClick}/>
+            <span className="click-me">Click the donut.</span>
         </div>
-    )
+    );
 }
 
 export default function Home() {
-    const [chance] = useState(Math.random())
+    const [chance] = useState(Math.random());
+    const [clicked, setClicked] = useState(false);
 
     return(
         <Suspense 
@@ -191,7 +193,7 @@ export default function Home() {
             }
         >
             <SideBar blur={true} top={5} left={0} />
-            { chance > 0.01 ? <Welcome/> : <Donut/> }
+            { chance > 0.01 && !clicked ? <Welcome setClicked={setClicked}/> : <Donut/> }
         </Suspense>
     );
 }

@@ -69,25 +69,25 @@ export default function AboutMe() {
     }
 
     return (
-        <div>
-            <Grid container>
-                <Grid item container className="about-me-header" direction="row">
-                    <Grid item xs> 
-                        <SideBar blur={false} top={60} left={20}/>
-                    </Grid>
-                    <Grid item xs={8}>
-                        <h1
-                            className="about-me-name"
-                            children={name}
-                            onMouseEnter={() => {
-                                if (name === "ETHAN KRUG") {
-                                    nameHover();
-                                }
-                            }}
-                        />
-                    </Grid>
+        <Grid container>
+            <Grid item container className="about-me-header" direction="row">
+                <Grid item xs> 
+                    <SideBar blur={false} top={60} left={20}/>
                 </Grid>
-                <Grid item container className="about-me-intro">
+                <Grid item xs={8}>
+                    <h1
+                        className="about-me-name"
+                        children={name}
+                        onMouseEnter={() => {
+                            if (name === "ETHAN KRUG") {
+                                nameHover();
+                            }
+                        }}
+                    />
+                </Grid>
+            </Grid>
+            <Grid item container className="about-me-intro">
+                <span>
                     Hello, I'm a computer scientist with a passion for building
                     clean and efficient software solutions. I have a Bachelor of
                     Science in Computer Science from Central Washington University
@@ -105,18 +105,22 @@ export default function AboutMe() {
                     committed to staying up-to-date with the latest industry trends
                     and technologies to ensure that the software I develop is always
                     cutting-edge and meets the highest standards of quality.<br /><br />
-                </Grid>
-                <Grid item container className="about-me-skills">
-                    <h2 className="about-me-skills-header">Skills</h2>
+                </span>
+            </Grid>
+            <Grid item container className="about-me-skills">
+                <h2 className="about-me-skills-header">Skills</h2>
+                <span>
                     In regards to my language skills, I am proficient in Python,
                     Java, and JavaScript/TypeScript. I have experience using
                     C/C++, Google App Scripts, MATLAB, R, Shell, and SQL,
                     however I do not consider myself proficient in these languages.
                     Despite that, having used them previously, I would be able to
                     quickly pick them up again, if the need arose.<br /><br />
-                </Grid>
-                <Grid item container className="about-me-react">
-                    <h3 className="about-me-react-header">Journey with React</h3>
+                </span>
+            </Grid>
+            <Grid item container className="about-me-react">
+                <h3 className="about-me-react-header">Journey with React</h3>
+                <span>
                     Other than languages, I have a few years of experience with React.<br /><br />
 
                     In 2019, I started using React when my friend asked if I wanted
@@ -201,34 +205,30 @@ export default function AboutMe() {
                     with others and by myself, my ability to learn new
                     technologies and concepts, as well as my understanding of
                     software development.<br /><br />
-                </Grid>
-                <Grid item container className="about-me-info" direction="column">
-                    <Grid item>
-                        <h2 className="about-me-info-header">Personal Information</h2>
-                    </Grid>
-                        <span>
-                            You can find my resume, GitHub, and contact information bellow.
-                            I will respond to messages to my email quicker and more often
-                            than to LinkedIn if you need to urgently contact me.<br /><br />
-
-                            If you want to know more about me as a person, I think
-                            my <Link to="/blog">Blog</Link> does
-                            a better job capturing my voice and personality than I could
-                            convey here. <br/><br/> 
-                        </span>
-                    <Grid item>
-                    </Grid>
-                </Grid>
-                <Grid item container className="about-me-links" direction="column">
-                    <h2 className="about-me-links-header">Links</h2>
-                    <div className="about-me-links-container">
-                        <Button href="resources/Resume.pdf" target="_blank" rel="noreferrer" startIcon={<FileDownloadIcon />}>Resume</Button>
-                        <Button href="https://github.com/GurkNathe/" target="_blank" rel="noreferrer" startIcon={<GitHubIcon />}>Github</Button>
-                        <Button href="https://www.linkedin.com/in/ethan-krug-5a3088171" target="_blank" rel="noreferrer" startIcon={<LinkedInIcon />}>LinkedIn</Button>
-                        <Button href="mailto:ethan.c.krug@gmail.com" target="_blank" rel="noreferrer" startIcon={<EmailIcon />}>Email</Button>
-                    </div>
-                </Grid>
+                </span>
             </Grid>
-        </div>
+            <Grid item container className="about-me-info" direction="column">
+                <h2 className="about-me-info-header">Personal Information</h2>
+                <span>
+                    You can find my resume, GitHub, and contact information bellow.
+                    I will respond to messages to my email quicker and more often
+                    than to LinkedIn if you need to urgently contact me.<br /><br />
+
+                    If you want to know more about me as a person, I think
+                    my <Link to="/blog">Blog</Link> does
+                    a better job capturing my voice and personality than I could
+                    convey here. <br/><br/> 
+                </span>
+            </Grid>
+            <Grid item container className="about-me-links" direction="column">
+                <h2 className="about-me-links-header">Links</h2>
+                <div className="about-me-links-container">
+                    <Button href="resources/Resume.pdf" target="_blank" rel="noreferrer" startIcon={<FileDownloadIcon />}>Resume</Button>
+                    <Button href="https://github.com/GurkNathe/" target="_blank" rel="noreferrer" startIcon={<GitHubIcon />}>Github</Button>
+                    <Button href="https://www.linkedin.com/in/ethan-krug-5a3088171" target="_blank" rel="noreferrer" startIcon={<LinkedInIcon />}>LinkedIn</Button>
+                    <Button href="mailto:ethan.c.krug@gmail.com" target="_blank" rel="noreferrer" startIcon={<EmailIcon />}>Email</Button>
+                </div>
+            </Grid>
+        </Grid>
     )
 }

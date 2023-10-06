@@ -1,34 +1,21 @@
-.page {
+.article-page {
     width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 20px;
     background-image: radial-gradient(circle at top left, #0122F5, #F5D469);
+}
+
+.article-header {
+    padding: 40px;
+}
+
+.article-body {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
 }
 
 .article-paper {
     width: 80vw;
     overflow-x: hidden;
-}
-
-.article-paper::-webkit-scrollbar {
-    width: 6px;
-}
-
-.article-paper::-webkit-scrollbar-track {
-    background: none;
-}
-
-.article-paper::-webkit-scrollbar-thumb {
-    background: radial-gradient(#F5D469, #0118ad);
-    border-radius: 10px;
-    height: 50px;
-}
-
-.article-paper::-webkit-scrollbar-thumb:hover {
-    background: radial-gradient(#0118ad, #F5D469);
 }
 
 .article {

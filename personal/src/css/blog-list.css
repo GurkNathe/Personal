@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: #19FFE0;
+    background: linear-gradient(#19FFE0, rgb(41 121 255));
     overflow-y: auto;
     overflow-x: hidden;
     min-height: 100vh;
@@ -55,8 +55,8 @@
 }
 
 .blog-nav {
-    width: 100px;    
-    background-color: #19FFE0;
+    width: 100px;
+    background: linear-gradient(#19FFE0, rgb(41 121 255));
     flex-grow: 1;
     min-height: 100vh;
     overflow: auto;

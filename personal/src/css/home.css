@@ -81,6 +81,7 @@
 }
 
 /* CSS for Donut component */
+
 .container {
     background-color: black;
     display: flex;
@@ -88,6 +89,7 @@
     justify-content: center;
     flex-direction: column;
     height: 100vh;
+    overflow: hidden;
 }
 
 .welcome {
@@ -97,6 +99,16 @@
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
+}
+
+.click-me {
+    color:rgb(79, 185, 69);
+    font-size: 6rem;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    text-align: center;
 }
 
 @media all and (min-width: 0px) and (max-width: 600px) {

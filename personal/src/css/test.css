@@ -1,5 +1,6 @@
 :root {
     --padding-size: 20px;
+    --font-color: #181818;
 }
 
 .about-me-name {
@@ -10,32 +11,38 @@
 /* Sections CSS */
 
 .about-me-header {
-    background-color: #313131;
+    background: linear-gradient(#313131, #086891);
+    color: var(--font-color);
 }
 
 .about-me-intro {    
     padding: var(--padding-size);
-    background-color: #086891;
+    background: linear-gradient(#086891, #24858f);
+    color: var(--font-color);
 }
 
 .about-me-skills {
     padding: var(--padding-size);
-    background-color: #24858f;
+    background: linear-gradient(#24858f, #3ca089);
+    color: var(--font-color);
 }
 
 .about-me-react {
     padding: var(--padding-size);
-    background-color: #3ca089;
+    background: linear-gradient(#3ca089, #55bc80);
+    color: var(--font-color);
 }
 
 .about-me-info {
     padding: var(--padding-size);
-    background-color: #55bc80;
+    background: linear-gradient(#55bc80, #6ed871);
+    color: var(--font-color);
 }
 
 .about-me-links {
     padding: var(--padding-size);
     background-color: #6ed871;
+    color: var(--font-color);
 }
 
 /* Sections' Header CSS */

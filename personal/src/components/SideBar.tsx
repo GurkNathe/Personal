@@ -53,7 +53,8 @@ export default function SideBar({ blur, top, left }: BarProps) {
         color: "white",
         backgroundColor: "#181818",
         "&:hover": {
-            backgroundColor: blur ? "" : "#686868"
+            backgroundColor: blur ? "" : "#686868",
+            outline:  blur ? "" : "3px solid white"
         },
         background: blur ? "radial-gradient(#181818, transparent 75%, transparent)" : ""
     }))
