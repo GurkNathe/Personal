@@ -70,25 +70,20 @@ function Welcome({ setClicked }: WelcomeClicked) {
     }
 
     const checkMobile = () => {
-        if ('ontouchstart' in window) {
-            return true;
-        }
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            return true;
-        }
-        if (window.innerWidth <= 768) {
+        if ('ontouchstart' in window ||
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+            window.innerWidth <= 768) {
             return true;
         }
         return false;
     }
-    
 
-    const wsh = window.screen.height;
-    let bg_len =  wsh >= 1500 ? 40000 : (wsh >= 1200 ? 30000 : (wsh >= 1000 ? 20000 : (wsh >= 850 ? 10000 : 7000)));
-
-    if (checkMobile()) {
-        bg_len = 5000;
+    const getBGLen = (height: number) => {
+        if (checkMobile()) return Math.floor(((height - 600) * 5000) / 400);
+        return Math.floor((height * 40000) / 1800);
     }
+
+    const bg_len = getBGLen(window.screen.height);
 
     const [bg_text, setBGText] = useState<string>(stringGen(bg_len));
     const [center_text, setCText] = useState<string>("");
