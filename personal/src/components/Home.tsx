@@ -69,7 +69,13 @@ function Welcome({ setClicked }: WelcomeClicked) {
         }, 30);
     }
 
-    const [bg_text, setBGText] = useState<string>(stringGen(20000));
+    const bg_len =  window.screen.height > 900 ? 
+                    window.screen.height > 1000 ? 
+                    window.screen.height > 1200 ? 
+                    window.screen.height > 1500 ? 
+                    40000: 30000 : 20000 : 10000 : 7000;
+
+    const [bg_text, setBGText] = useState<string>(stringGen(bg_len));
     const [center_text, setCText] = useState<string>("");
 
     useEffect(() => {
@@ -81,7 +87,7 @@ function Welcome({ setClicked }: WelcomeClicked) {
         main.style.setProperty("--x", `${e.clientX}px`);
         main.style.setProperty("--y", `${e.clientY}px`);
 
-        setBGText(stringGen(20000))
+        setBGText(stringGen(bg_len))
     }
 
     const handleClick = () => {
