@@ -1,43 +1,84 @@
 import { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Chip from "@mui/material/Chip";
 import FormControl from "@mui/material/FormControl";
+import MenuItem from "@mui/material/MenuItem";
+import Paper from "@mui/material/Paper";
 import Select from "@mui/material/Select";
-import styled from "@mui/material/styles/styled";
 import TextField from "@mui/material/TextField";
+import styled from "@mui/material/styles/styled";
 
 import "../css/custom.css";
 
-export const PageSizeSelect = styled(Select)({
-    '.MuiOutlinedInput-notchedOutline': {
-        borderColor: 'black',
-    },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-        borderColor: 'black',
-    },
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: 'black',
-    }
-});
+/* Blog List components */
+
+const bgColor = "black";
+const fontColor = "white";
 
 export const SearchField = styled(TextField)({
-    "& label.Mui-focused": {
-        color: "black"
+    "& input": {
+        color: fontColor
     },
     "& .MuiOutlinedInput-root": {
         "&.Mui-focused fieldset": {
-            borderColor: "black"
+            borderColor: "white"
         }
     }
+});
+
+export const Post = styled(Box)({
+    "& .MuiGrid-root": {
+        background: bgColor,
+        color: fontColor
+    }
+});
+
+export const Info = styled(Chip)({
+    color: fontColor
 });
 
 export const SelectForm = styled(FormControl)({
+    "& input": {
+        color: fontColor,
+        backgroundColor: bgColor
+    },
     "& label.Mui-focused": {
         color: "black"
     },
     "& .MuiOutlinedInput-root": {
         "&.Mui-focused fieldset": {
-            borderColor: "black"
+            borderColor: "white"
         }
     }
+});
+
+export const PageSizeSelect = styled(Select)({
+    ".MuiOutlinedInput-input": {
+        color: fontColor
+    },
+    '.MuiOutlinedInput-notchedOutline': {
+        borderColor: 'white',
+    },
+    '&:hover .MuiOutlinedInput-notchedOutline': {
+        borderColor: 'grey',
+    }
+});
+
+export const PageSizeOption = styled(MenuItem)({
+    color: fontColor,
+    backgroundColor: bgColor,
+    "&.Mui-selected": {
+        "&:hover": {
+            backgroundColor: "#808080",
+        },
+        backgroundColor: "#474747",
+        color: 'light grey'
+    },
+    "&:hover": {
+        color: "#eee",
+        backgroundColor: "#373737"
+    },
+    
 });
 
 type Img = {
@@ -70,6 +111,8 @@ export const ProgressiveImg = ({ placeholderSrc, src, title }: Img) => {
     );
 };
 
+/* Blog List components */
+
 export const Loader = () => {
     return(
         <svg className="loader" xmlns="http://www.w3.org/2000/svg" width="200" height="200">
@@ -82,3 +125,7 @@ export const Loader = () => {
         </svg>
     );
 }
+
+export const ArticlePaper = styled(Paper)({
+    backgroundColor: "black"
+})

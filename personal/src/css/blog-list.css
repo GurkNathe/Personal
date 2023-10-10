@@ -33,7 +33,7 @@
     width: 100%;
     margin: 10px;
     border-radius: 5px;
-    background: #fff;
+    background: #000;
     z-index: 9;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .page-size {
-    background: #fff;
+    background-color: #000;
     border-radius: 5px;
     width: 120px;
     min-width: 120px;

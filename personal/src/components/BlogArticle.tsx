@@ -1,7 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
+
+import { ArticlePaper } from "./CustomComponent";
 
 import SideBar from "./SideBar";
 
@@ -21,9 +22,9 @@ export default function BlogArticle() {
                 <SideBar blur={false} top={20} left={10}/>
             </Grid>
             <Grid item container xs={7} className="article-body">
-                <Paper className="article-paper">
+                <ArticlePaper className="article-paper">
                     <div className="article" dangerouslySetInnerHTML={{ __html: data }}/>
-                </Paper>
+                </ArticlePaper>
             </Grid>
         </Grid>
     );

@@ -69,17 +69,7 @@ function Welcome({ setClicked }: WelcomeClicked) {
         }, 30);
     }
 
-    const checkMobile = () => {
-        if ('ontouchstart' in window ||
-            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-            window.innerWidth <= 768) {
-            return true;
-        }
-        return false;
-    }
-
     const getBGLen = (height: number) => {
-        if (checkMobile()) return Math.floor(((height - 600) * 5000) / 400);
         return Math.floor((height * 40000) / 1800);
     }
 
@@ -200,6 +190,15 @@ export default function Home() {
     const [chance] = useState(Math.random());
     const [clicked, setClicked] = useState(false);
 
+    const checkMobile = () => {
+        if ('ontouchstart' in window ||
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+            window.innerWidth <= 768) {
+            return true;
+        }
+        return false;
+    }
+
     return(
         <Suspense 
             fallback={
@@ -209,7 +208,7 @@ export default function Home() {
             }
         >
             <SideBar blur={true} top={5} left={0} />
-            { chance > 0.01 && !clicked ? <Welcome setClicked={setClicked}/> : <Donut/> }
+            { chance > 0.01 && !clicked && !checkMobile() ? <Welcome setClicked={setClicked}/> : <Donut/> }
         </Suspense>
     );
 }

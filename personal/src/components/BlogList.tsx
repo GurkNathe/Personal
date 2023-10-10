@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router-dom";
 
 import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
 import Pagination from "@mui/material/Pagination";
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { SelectChangeEvent } from "@mui/material/Select";
@@ -17,9 +16,10 @@ import SideBar from "./SideBar";
 
 import {
     Loader,
+    PageSizeOption,
     PageSizeSelect,
     SearchField,
-    SelectForm
+    SelectForm,
 } from "./CustomComponent";
 
 import "../css/blog-list.css";
@@ -135,7 +135,7 @@ export default function BlogList() {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position="start">
-                                    <SearchRoundedIcon />
+                                    <SearchRoundedIcon style={{ color:"white" }}/>
                                 </InputAdornment>
                             )
                         }}
@@ -174,16 +174,23 @@ export default function BlogList() {
                             ))}
                             {data.length > 5 ? 
                                 <SelectForm className="page-size" size="small">
-                                    <InputLabel>Page Size</InputLabel>
+                                    <InputLabel style={{ color: "white", background: "radial-gradient(#181818, transparent 75%, transparent)" }}>Page Size</InputLabel>
                                     <PageSizeSelect
                                         value={String(pageSize)}
                                         onChange={(event) => changePageSize(event)}
+                                        MenuProps={{
+                                            MenuListProps: {
+                                                sx: {
+                                                    backgroundColor: 'black',
+                                                }
+                                            }
+                                        }}
                                     >
-                                        <MenuItem value={5}>Five</MenuItem>
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={15}>Fifteen</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
+                                        <PageSizeOption value={5}>Five</PageSizeOption>
+                                        <PageSizeOption value={10}>Ten</PageSizeOption>
+                                        <PageSizeOption value={15}>Fifteen</PageSizeOption>
+                                        <PageSizeOption value={20}>Twenty</PageSizeOption>
+                                        <PageSizeOption value={30}>Thirty</PageSizeOption>
                                     </PageSizeSelect>
                                 </SelectForm> : null
                             }
