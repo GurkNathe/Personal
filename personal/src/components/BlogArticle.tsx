@@ -1,3 +1,4 @@
+import { useLayoutEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 
 import Grid from "@mui/material/Grid";
@@ -15,6 +16,10 @@ export const articleTextLoader = async (url: string | undefined): Promise<Respon
 
 export default function BlogArticle() {
     const data = useLoaderData() as string;
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0);
+    });
 
     return (
         <Grid container direction="column" className="article-page">

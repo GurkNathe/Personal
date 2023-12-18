@@ -33,7 +33,7 @@
     width: 100%;
     margin: 10px;
     border-radius: 5px;
-    background: #000;
+    background: var(--bar-color);
     z-index: 9;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .page-size {
-    background-color: #000;
+    background-color: var(--bar-color);
     border-radius: 5px;
     width: 120px;
     min-width: 120px;
@@ -60,4 +60,9 @@
     flex-grow: 1;
     min-height: 100vh;
     overflow: auto;
+}
+
+.no-posts {
+    margin-top: 50px;
+    color: var(--bar-color);
 }

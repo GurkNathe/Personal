@@ -1,3 +1,4 @@
+import { useLayoutEffect } from "react";
 import {
     createHashRouter,
     createRoutesFromElements,
@@ -16,6 +17,10 @@ import Test from "./components/Test";
 import "./css/root.css";
 
 export default function App() {
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0);
+    });
+
     const routes = createRoutesFromElements(
         <Route path="/">
             <Route index path="/" element={<Home />} errorElement={<Donut />}/>

@@ -12,7 +12,7 @@ import "../css/custom.css";
 
 /* Blog List components */
 
-const bgColor = "black";
+const bgColor = "var(--bar-color)";
 const fontColor = "white";
 
 export const SearchField = styled(TextField)({
@@ -38,13 +38,6 @@ export const Info = styled(Chip)({
 });
 
 export const SelectForm = styled(FormControl)({
-    "& input": {
-        color: fontColor,
-        backgroundColor: bgColor
-    },
-    "& label.Mui-focused": {
-        color: "black"
-    },
     "& .MuiOutlinedInput-root": {
         "&.Mui-focused fieldset": {
             borderColor: "white"
@@ -53,6 +46,9 @@ export const SelectForm = styled(FormControl)({
 });
 
 export const PageSizeSelect = styled(Select)({
+    ".MuiSelect-icon": {
+        color: "white"
+    },
     ".MuiOutlinedInput-input": {
         color: fontColor
     },
@@ -77,8 +73,7 @@ export const PageSizeOption = styled(MenuItem)({
     "&:hover": {
         color: "#eee",
         backgroundColor: "#373737"
-    },
-    
+    }
 });
 
 type Img = {
@@ -127,5 +122,5 @@ export const Loader = () => {
 }
 
 export const ArticlePaper = styled(Paper)({
-    backgroundColor: "black"
+    backgroundColor: bgColor
 })

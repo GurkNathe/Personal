@@ -43,7 +43,7 @@ export default class Maze {
     draw(): void {
         this.canvas.width = this.size;
         this.canvas.height = this.size;
-        this.canvas.style.background = "black";
+        this.canvas.style.background = "#181818";
         this.current.visited = true;
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns; col++) {
@@ -65,7 +65,7 @@ export default class Maze {
         }
         if (this.stack.length === 0) {
             this.setEnd(true);
-            this.current.highlight(this.columns, "black");
+            this.current.highlight(this.columns, "#181818");
             return;
         }
 
@@ -196,7 +196,7 @@ class Cell {
         let y = (this.row * size) / rows;
 
         this.context.strokeStyle = "#fff";
-        this.context.fillStyle = "black";
+        this.context.fillStyle = "#181818";
         this.context.lineWidth = 2;
 
         if (this.walls.top) this.drawTopWall(x, y, size, columns);

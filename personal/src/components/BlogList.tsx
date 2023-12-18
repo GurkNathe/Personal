@@ -8,8 +8,9 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { SelectChangeEvent } from "@mui/material/Select";
 import StyledEngineProvider from "@mui/material/StyledEngineProvider";
 
+
 import { create, insert, search } from "@orama/orama";
-import { OpaqueDocumentStore, OpaqueIndex, Orama, Schema } from "@orama/orama/dist/types";
+import { IIndex, IDocumentsStore, ISorter, Orama, Schema } from "@orama/orama/dist/types";
 
 import BlogPost, { LoadedArticle } from "./BlogPost";
 import SideBar from "./SideBar";
@@ -30,7 +31,7 @@ export const articleLoader = async (): Promise<any> => {
     return articles;
 };
 
-type OramaSearch = Orama<{ Schema: Schema; Index: OpaqueIndex; DocumentStore: OpaqueDocumentStore; }>;
+type OramaSearch = Orama<{ Schema: Schema<LoadedArticle>}, IIndex<any>, IDocumentsStore<any>,ISorter<any>>;
 
 export default function BlogList() {
     const data = useLoaderData() as LoadedArticle[];
@@ -39,8 +40,8 @@ export default function BlogList() {
     const [posts, setPosts] = useState<LoadedArticle[]>([]);
     const [page, setPage] = useState<number>(0);
     const [searchValue, setSearchValue] = useState<string>("");
-    const [pageSize, setPageSize] = useState<number>(5);
-
+    const [pageSize, setPageSize] = useState<number>(isNaN(Number(sessionStorage.getItem("pagesize") ?? undefined)) ? 5 : Number(sessionStorage.getItem("pagesize")));
+    
     useEffect(() => {
         searchMaker(data).then((res) => {
             setSearch(res);
@@ -50,7 +51,7 @@ export default function BlogList() {
         setPosts(clayData.slice(0, pageSize));
     }, [clayData, data, pageSize]);
 
-    const searchMaker = async (data: LoadedArticle[]): Promise<OramaSearch> => {
+    const searchMaker = async (data: LoadedArticle[]): Promise<any> => {
         const search = await create({
             schema: {
                 title: "string",
@@ -61,8 +62,8 @@ export default function BlogList() {
                 tags: "string",
                 timestamp: "string",
                 grade_level: "string"
-            }
-        })
+            } as const
+        });
 
         data.forEach(async (value) => {
             await insert(search, {
@@ -113,6 +114,8 @@ export default function BlogList() {
 
         setPosts(clayData.slice(0, pSize));
         setPageSize(pSize);
+
+        sessionStorage.setItem("pagesize", String(pSize));
 
         if (page > 0) {
             setPage(0);
@@ -181,7 +184,7 @@ export default function BlogList() {
                                         MenuProps={{
                                             MenuListProps: {
                                                 sx: {
-                                                    backgroundColor: 'black',
+                                                    backgroundColor: 'var(--bar-color)',
                                                 }
                                             }
                                         }}
@@ -205,9 +208,9 @@ export default function BlogList() {
                             }
                         </> :
                         <>
-                            {data ?
+                            {data && !searchValue ?
                                 <Loader/> :
-                                <div>No available posts.</div>
+                                <div className="no-posts">No available posts.</div>
                             }
                         </>
                         

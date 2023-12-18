@@ -85,7 +85,7 @@
 /* CSS for Donut component */
 
 .container {
-    background-color: black;
+    background-color: var(--bar-color);
     display: flex;
     align-items: center;
     justify-content: center;
