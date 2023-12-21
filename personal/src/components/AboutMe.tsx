@@ -95,7 +95,7 @@ export default function AboutMe() {
                     working on projects mainly relating to web development
                     and data science.<br /><br />
 
-                    Currently, I am looking for employment. My expertise includes
+                    Currently, I am not looking for employment. However, my expertise includes
                     proficiency in a variety of programming languages,
                     database technologies, and development frameworks.<br /><br />
 
@@ -105,6 +105,10 @@ export default function AboutMe() {
                     committed to staying up-to-date with the latest industry trends
                     and technologies to ensure that the software I develop is always
                     cutting-edge and meets the highest standards of quality.<br /><br />
+
+                    I am open to working on projects outside of my job. If you think
+                    my abilities would be of use, feel free to contact me, as I would
+                    love to delve in to a new project.<br /><br />
                 </span>
             </Grid>
             <Grid item container className="about-me-skills">
@@ -112,7 +116,7 @@ export default function AboutMe() {
                 <span>
                     In regards to my language skills, I am proficient in Python,
                     Java, and JavaScript/TypeScript. I have experience using
-                    C/C++, Google App Scripts, MATLAB, R, Shell, and SQL,
+                    C/C++, C#, Google App Scripts, MATLAB, R, Shell, and SQL,
                     however I do not consider myself proficient in these languages.
                     Despite that, having used them previously, I would be able to
                     quickly pick them up again, if the need arose.<br /><br />
