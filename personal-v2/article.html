@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="article.css">
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
     <header class="header">
@@ -75,22 +76,24 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             // Get the URL parameter
-            const urlParam = new URLSearchParams(window.location.search).get('url');
+            const url = new URLSearchParams(window.location.search).get('url');
+            const title = new URLSearchParams(window.location.search).get('title');
             
-            if (urlParam) {
+            if (url) {
                 // Now you can use the URL parameter to fetch and display the article content
-                fetchArticleContent(urlParam);
+                fetchArticleContent(url, title);
             } else {
                 window.history.back();
             }
         });
 
-        async function fetchArticleContent(articleUrl) {
+        async function fetchArticleContent(articleUrl, articleTitle) {
             try {
                 const res = await fetch(`https://raw.githubusercontent.com/GurkNathe/Personal/main/articles/articles/${articleUrl}.html`);
                 if (res.ok) {
                     const htmlContent = await res.text();
                     document.getElementById("article-container").innerHTML = htmlContent;
+                    document.title = articleTitle;
                 } else {
                     console.error("Failed to load article");
                 }

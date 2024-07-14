@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
     <header class="header">
@@ -112,7 +113,6 @@
             });
         });
 
-
         document.addEventListener('DOMContentLoaded', async function() {
             await getArticles();
         });
@@ -133,7 +133,7 @@
 
                 const card = `
                 <div class="post" id="post-${article.contentUrl}">
-                    <a href="#" class="link" onclick="route('article.html?url=${article.contentUrl}')">
+                    <a href="#" class="link" onclick="route('article.html?url=${article.contentUrl}&title=${article.title}')">
                         <div id="${article.contentUrl}" class="background"></div>
                         <div class="outlined-card">
                             <div class="top">
