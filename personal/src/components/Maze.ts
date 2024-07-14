@@ -206,6 +206,5 @@ class Cell {
         if (this.visited) {
             this.context.fillRect(x + 1, y + 1, size / columns - 2, size / rows - 2);
         }
-
     }
 }

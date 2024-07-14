@@ -115,8 +115,8 @@ export default function AboutMe() {
                 <h2 className="about-me-skills-header">Skills</h2>
                 <span>
                     In regards to my language skills, I am proficient in Python,
-                    Java, and JavaScript/TypeScript. I have experience using
-                    C/C++, C#, Google App Scripts, MATLAB, R, Shell, and SQL,
+                    Java, and JavaScript/TypeScript, C#, and SQL. I have experience using
+                    C/C++, Google App Scripts, MATLAB, R, and Shell,
                     however I do not consider myself proficient in these languages.
                     Despite that, having used them previously, I would be able to
                     quickly pick them up again, if the need arose.<br /><br />

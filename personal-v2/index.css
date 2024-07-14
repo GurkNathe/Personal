@@ -1,0 +1,271 @@
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+a {
+    position: relative;
+    z-index: 100;
+}
+
+/* ----- HEADER STYLES ----- */
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    background: 
+        linear-gradient(
+            45deg,
+            rgb(98, 69, 49),
+            rgb(122, 90, 64),
+            rgb(151, 116, 78),
+            rgb(190, 151, 95),
+            rgb(159, 186, 159),
+            rgb(128, 213, 221),
+            rgb(151, 246, 248),
+            rgb(134, 247, 255),
+            rgb(162, 247, 253)
+        ) 0% 0% / 300% 300%;  
+    border-radius: 90px 0 0 90px;
+    -webkit-animation: swirl 20s infinite linear;
+    -moz-animation: swirl 20s infinite linear;
+    animation: swirl 20s infinite linear;
+    background-blend-mode: difference;
+}
+
+@-webkit-keyframes swirl {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes swirl {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes swirl {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.header-bubble {
+    outline: 2px solid rgb(98, 69, 49);
+    border-radius: 100%;
+    padding: 5px;
+    transition: outline 0.1s ease-out;
+    background: 
+        linear-gradient(
+            60deg,
+            rgb(98, 69, 49),
+            rgb(190, 151, 95),
+            rgb(159, 186, 159),
+            rgb(128, 213, 221),
+            rgb(151, 246, 248),
+            rgb(134, 247, 255),
+            rgb(162, 247, 253)
+        );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-blend-mode: hard-light;
+}
+
+.header-bubble:hover {
+    background-color: rgb(190, 151, 95, 34);
+    outline: 5px solid rgb(98, 69, 49);
+}
+
+.non-link {
+    text-decoration: none;
+    color: black;
+}
+
+/* header bubble styles */
+
+.bub-home {
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    font-size: 30px; 
+    animation: homeFloat 2.5s infinite alternate;
+}
+
+.bub-blog {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    font-size: 30px; 
+    animation: blogFloat 2.25s infinite alternate;
+}
+
+.bub-1 {
+    transform: translate(-20px, 32px); 
+    padding: 10px;
+    animation: bub1Float 1.75s infinite alternate;
+}
+.bub-2 {
+    transform: translate(15px, -23px);
+    animation: bub2Float 0.9s infinite alternate;
+}
+.bub-3 {
+    transform: translateX(120px); 
+    padding: 20px;
+    animation: bub3Float 1.9s infinite alternate;
+}
+.bub-4 {
+    transform: translate(200px, 5px);
+    animation: bub4Float 0.75s infinite alternate;
+}
+.bub-5 {
+    transform: translate(290px, 15px);
+    animation: bub5Float 1s infinite alternate;
+}
+
+@keyframes homeFloat {
+    0% { transform: translate(32px, -35px) }
+    100% { transform: translate(32px, -15px) }
+}
+
+@keyframes blogFloat {
+    0% { transform: translate(115px, 35px); }
+    100% { transform: translate(115px, 55px); }
+}
+
+@keyframes bub1Float {
+    0% { transform: translate(-20px, 22px); }
+    100% { transform: translate(-20px, 42px); }
+}
+
+@keyframes bub2Float {
+    0% { transform: translate(15px, -33px); }
+    100% { transform: translate(15px, -13px); }
+}
+
+@keyframes bub3Float {
+    0% { transform: translate(120px, -10px);  }
+    100% { transform: translate(120px, 10px);  }
+}
+
+@keyframes bub4Float {
+    0% { transform: translate(200px, 0px); }
+    100% { transform: translate(200px, 10px); }
+}
+
+@keyframes bub5Float {
+    0% { transform: translate(290px, 10px); }
+    100% { transform: translate(290px, 20px); }
+}
+
+/* ----- HEADER STYLES ----- */
+
+/* ----- LINKS STYLES ----- */
+
+.links {
+    position: relative;
+    padding: 35px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.links::before {
+    content: "";
+    position: absolute;
+    padding: 5px; 
+    inset: 0;
+    border-radius: 90px 0 0 90px; 
+    background: linear-gradient(
+        rgb(98, 69, 49),
+        rgb(190, 151, 95),
+        rgb(159, 186, 159),
+        rgb(128, 213, 221),
+        rgb(151, 246, 248),
+        rgb(134, 247, 255),
+        rgb(162, 247, 253)
+    ); 
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+
+.link {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 90px;
+    background: linear-gradient(
+        rgb(98, 69, 49),
+        rgb(190, 151, 95),
+        rgb(159, 186, 159),
+        rgb(128, 213, 221),
+        rgb(151, 246, 248),
+        rgb(134, 247, 255),
+        rgb(162, 247, 253)
+    ); 
+}
+
+.link:hover {
+    filter: brightness(150%);
+}
+
+/* ----- LINKS STYLES ----- */
+
+/* ----- MAIN STYLES ----- */
+
+.main {
+    position: relative;
+    padding: 35px; 
+    margin-top: 10px;;
+}
+
+.main::before {
+    content: "";
+    position: absolute;
+    padding: 5px; 
+    inset: 0;
+    border-top-left-radius: 90px; 
+    background: linear-gradient(
+        rgb(98, 69, 49),
+        rgb(190, 151, 95),
+        rgb(159, 186, 159),
+        rgb(128, 213, 221),
+        rgb(151, 246, 248),
+        rgb(134, 247, 255),
+        rgb(162, 247, 253)
+    ); 
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+
+.hello {
+    font-size: 64px;
+    font-weight: bold;
+    background: linear-gradient(
+        rgb(98, 69, 49),
+        rgb(190, 151, 95),
+        rgb(159, 186, 159),
+        rgb(128, 213, 221),
+        rgb(151, 246, 248),
+        rgb(134, 247, 255),
+        rgb(162, 247, 253)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    float: left;
+    line-height: 64px;
+    padding-right: 16px;
+}
+
+/* ----- MAIN STYLES ----- */
