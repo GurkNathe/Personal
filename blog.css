@@ -1,0 +1,132 @@
+body {
+    background-color: black;
+}
+
+.posts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.post {
+    margin-bottom: 10px;
+    width: 40vw;
+    height: 365px;
+    max-width: 500px;
+    outline: 1px solid white;
+    border-radius: 10px;
+    position: relative;
+}
+
+@media all and (min-width: 0px) and (max-width: 1200px) {
+    .post {
+        width: 80vw;
+        height: unset;
+    }
+}
+
+.post:hover {
+    opacity: 0.75;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    filter: blur(3px);
+}
+
+.link {
+    text-decoration: none;
+    color: white !important; 
+}
+
+.text-cell {
+    padding: 10px;
+}
+
+.title {
+    font-size: min(20px, 5vw);
+    font-weight: bold;
+}
+
+.read-level {
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.summary {
+    font-size: min(16px, 5vw);
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media all and (min-width: 1000px) and (max-width: 1100px) {
+    .summary {
+        -webkit-line-clamp: 6;
+    }
+}
+
+@media all and (min-width: 0px) and (max-width: 1000px) {
+    .summary {
+        -webkit-line-clamp: 5;
+    }
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 3px;
+}
+
+.outlined-chip {
+    max-width: 100%;
+    text-align: center;
+    outline: 1px solid white;
+    border-radius: 50px;
+    padding: 5px;
+    margin: 2px;
+    align-content: center;
+}
+
+/* ----- HEADER STYLES ----- */
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.search {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.bub-home {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@media all and (min-width: 385px) and (max-width: 420px) {
+}
+
+@media all and (min-width: 0px) and (max-width: 385px) {
+}
+
+/* ----- HEADER STYLES ----- */
