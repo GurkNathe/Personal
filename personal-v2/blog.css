@@ -108,8 +108,13 @@ body {
 
 /* ----- HEADER STYLES ----- */
 
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
 .search {
-    transform: translate(290px, 15px);
     padding: 10px;
     border-radius: 10px;
 }
@@ -117,3 +122,11 @@ body {
 .bub-home {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+@media all and (min-width: 385px) and (max-width: 420px) {
+}
+
+@media all and (min-width: 0px) and (max-width: 385px) {
+}
+
+/* ----- HEADER STYLES ----- */
