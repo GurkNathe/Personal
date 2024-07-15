@@ -171,7 +171,7 @@
         we ended up releasing it on the Google Play Store and the Apple App Store, however, it 
         is no longer being maintained.
         <br /><br />
-        <img src="thumbup.webp" width="64px" height="48px" style="position: relative; float: left;"/>
+        <img src="thumbup.webp" width="64px" height="48px" style="position: relative; float: left; cursor: pointer;" onclick="playSong()"/>
         Fast forward again to late 2020, and I have transferred to Central Washington University.
         This was also the year that COVID started, which was a great time to transfer, what with
         being at a completely new school, and all the classes being online. Despite that, I did
@@ -222,6 +222,11 @@
 <script>
     function route(page) {
         window.location.href = page;
+    }
+
+    function playSong() {
+        const song = new Audio("funky-town-(low-quality)-made-with-Voicemod-technology.mp3");
+        song.play();
     }
 </script>
 </body>
