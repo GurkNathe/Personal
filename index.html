@@ -1,2 +1,233 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/Personal/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="My personal website where I upload what I am doing, 
-        and what I want to talk about."/><meta http-equiv="Permissions-Policy" content="interest-cohort=()"><link rel="apple-touch-icon" href="/Personal/logo192.png"/><link rel="manifest" href="/Personal/manifest.json"/><title>Ethan Krug</title><script defer="defer" src="/Personal/static/js/main.61461495.js"></script><link href="/Personal/static/css/main.f6b2c556.css" rel="stylesheet"></head><body><noscript>This application runs using React, JavaScript needs to be enabled.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="My personal website where I upload what I am doing, 
+        and what I want to talk about." />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <title>Ethan Krug</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-bubble">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            version="1.1" 
+            width="180px" 
+            height="180px" 
+            style=" shape-rendering: geometricPrecision; 
+                    text-rendering: geometricPrecision; 
+                    image-rendering: optimizeQuality; 
+                    fill-rule: evenodd; 
+                    clip-rule: evenodd;
+                    " 
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <defs>
+                    <linearGradient id="gradient" gradientUnits="objectBoundingBox">
+                        <stop offset="0%"    stop-color="rgb(162, 247, 253)" />
+                        <stop offset="12.5%" stop-color="rgb(134, 247, 255)" />
+                        <stop offset="25%"   stop-color="rgb(151, 246, 248)" />
+                        <stop offset="60%" stop-color="rgb(128, 213, 221)" />
+                        <stop offset="70%"   stop-color="rgb(159, 186, 159)" />
+                        <stop offset="80%" stop-color="rgb(190, 151, 95)" />
+                        <stop offset="90%"   stop-color="rgb(151, 116, 78)" />
+                        <stop offset="95%" stop-color="rgb(122, 90, 64)" />
+                        <stop offset="100%"  stop-color="rgb(98, 69, 49)" />
+                    </linearGradient>
+                </defs>
+            </defs>
+            <g>
+                <path 
+                    style="opacity:0.897;" 
+                    fill="url(#gradient)" 
+                    stroke="#000000" 
+                    stroke-width="1" 
+                    d="M 160.5,24.5 C 164.78,27.2525 167.614,30.9192 169,35.5C 151.039,51.5574 133.206,67.7241 115.5,84C 132.654,101.154 149.821,118.321 167,135.5C 167.953,137.455 169.287,139.122 171,140.5C 171.667,141.5 171.667,142.5 171,143.5C 167.353,146.313 163.853,149.313 160.5,152.5C 143.882,133.048 126.049,114.715 107,97.5C 106.667,115.167 106.333,132.833 106,150.5C 101.934,151.464 97.7675,151.797 93.5,151.5C 93.5,147.833 93.5,144.167 93.5,140.5C 71.1667,140.5 48.8333,140.5 26.5,140.5C 26.5,144.167 26.5,147.833 26.5,151.5C 22.5,151.5 18.5,151.5 14.5,151.5C 14.5,111.167 14.5,70.8333 14.5,30.5C 45.1667,30.5 75.8333,30.5 106.5,30.5C 106.333,44.8372 106.5,59.1705 107,73.5C 124.729,56.9321 142.563,40.5988 160.5,24.5 Z M 26.5,41.5 C 48.8333,41.5 71.1667,41.5 93.5,41.5C 93.5,53.8333 93.5,66.1667 93.5,78.5C 71.1667,78.5 48.8333,78.5 26.5,78.5C 26.5,66.1667 26.5,53.8333 26.5,41.5 Z M 26.5,90.5 C 48.8333,90.5 71.1667,90.5 93.5,90.5C 93.5,103.5 93.5,116.5 93.5,129.5C 71.1667,129.5 48.8333,129.5 26.5,129.5C 26.5,116.5 26.5,103.5 26.5,90.5 Z"
+                />
+            </g>
+        </svg>
+    </div>
+    <a class="header-bubble non-link bub-home" href="#" onclick="route('blog.html')">Blog</a>
+    <a class="header-bubble non-link bub-blog"></a>
+    <div class="header-bubble bub-1"></div>
+    <div class="header-bubble bub-2"></div>
+    <div class="header-bubble bub-3"></div>
+    <div class="header-bubble bub-4"></div>
+    <div class="header-bubble bub-5"></div>
+</header>
+<div class="links">
+    <a class="non-link link" href="Resume.pdf" target="_blank" rel="noreferrer">
+        <svg 
+            width="48px" 
+            height="48px">
+            <g 
+                transform="translate(0, 48) scale(0.05,-0.05)"
+                fill="#000000" 
+                stroke="none">
+                <path d="M185 855 l-25 -24 0 -351 0 -351 25 -24 24 -25 271 0 271 0 24 25 25 24 0 351 0 351 -25 24 -24 25 -271 0 -271 0 -24 -25z m539 -51 c14 -13 16 -57 16 -324 0 -267 -2 -311 -16 -324 -23 -24 -465 -24 -488 0 -14 13 -16 57 -16 324 0 267 2 311 16 324 23 24 465 24 488 0z"/>
+                <path d="M427 742 c-23 -25 -22 -85 1 -105 25 -23 85 -22 105 1 23 25 22 85 -1 105 -25 23 -85 22 -105 -1z"/>
+                <path d="M360 542 c0 -61 25 -77 120 -77 95 0 120 16 120 77 l0 38 -120 0 -120 0 0 -38z"/>
+                <path d="M296 385 c-3 -8 -3 -22 0 -30 9 -22 359 -22 368 0 3 8 3 22 0 30 -9 22 -359 22 -368 0z"/>
+                <path d="M296 265 c-15 -40 0 -45 144 -45 144 0 159 5 144 45 -9 22 -279 22 -288 0z"/>
+            </g>
+        </svg>
+        Resume
+    </a>
+    <a class="non-link link" href="https://github.com/GurkNathe/" target="_blank" rel="noreferrer">
+        <svg 
+            viewBox="0 0 72 72" 
+            width="48px" 
+            height="48px">
+            <path d="M 36 12 C 22.745 12 12 22.745 12 36 C 12 49.255 22.745 60 36 60 C 49.255 60 60 49.255 60 36 C 60 22.745 49.255 12 36 12 z M 36 20 C 44.837 20 52 27.163 52 36 C 52 43.284178 47.128298 49.420174 40.46875 51.355469 C 40.198559 51.103128 39.941627 50.74363 39.953125 50.285156 C 39.980125 49.233156 39.953125 46.778953 39.953125 45.876953 C 39.953125 44.328953 38.972656 43.230469 38.972656 43.230469 C 38.972656 43.230469 46.654297 43.316141 46.654297 35.119141 C 46.654297 31.957141 45.003906 30.310547 45.003906 30.310547 C 45.003906 30.310547 45.872125 26.933953 44.703125 25.501953 C 43.393125 25.359953 41.046922 26.753297 40.044922 27.404297 C 40.044922 27.404297 38.457406 26.753906 35.816406 26.753906 C 33.175406 26.753906 31.587891 27.404297 31.587891 27.404297 C 30.586891 26.753297 28.239687 25.360953 26.929688 25.501953 C 25.760688 26.933953 26.628906 30.310547 26.628906 30.310547 C 26.628906 30.310547 24.974609 31.956141 24.974609 35.119141 C 24.974609 43.316141 32.65625 43.230469 32.65625 43.230469 C 32.65625 43.230469 31.782197 44.226723 31.693359 45.652344 C 31.180078 45.833418 30.48023 46.048828 29.8125 46.048828 C 28.2025 46.048828 26.978297 44.483766 26.529297 43.759766 C 26.086297 43.045766 25.178031 42.447266 24.332031 42.447266 C 23.775031 42.447266 23.503906 42.726922 23.503906 43.044922 C 23.503906 43.362922 24.285781 43.585781 24.800781 44.175781 C 25.887781 45.420781 25.866281 48.21875 29.738281 48.21875 C 30.196553 48.21875 31.021102 48.11542 31.677734 48.025391 C 31.674106 48.90409 31.663893 49.74536 31.677734 50.285156 C 31.688158 50.700354 31.476914 51.032045 31.236328 51.279297 C 24.726159 49.25177 20 43.177886 20 36 C 20 27.163 27.163 20 36 20 z"/>
+        </svg>
+        Github
+    </a>
+    <a class="non-link link" href="https://www.linkedin.com/in/ethan-krug-5a3088171" target="_blank" rel="noreferrer">
+        <svg 
+            viewBox="0 0 30 30" 
+            width="48px" 
+            height="48px">    
+            <path d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"/>
+        </svg>
+        LinkedIn
+    </a>
+    <a class="non-link link" href="mailto:ethan.c.krug@gmail.com" target="_blank" rel="noreferrer">
+        <svg 
+            viewBox="0 0 50 50" 
+            width="48px" 
+            height="48px">
+            <path d="M12 23.403V23.39 10.389L11.88 10.3h-.01L9.14 8.28C7.47 7.04 5.09 7.1 3.61 8.56 2.62 9.54 2 10.9 2 12.41v3.602L12 23.403zM38 23.39v.013l10-7.391V12.41c0-1.49-.6-2.85-1.58-3.83-1.46-1.457-3.765-1.628-5.424-.403L38.12 10.3 38 10.389V23.39zM14 24.868l10.406 7.692c.353.261.836.261 1.189 0L36 24.868V11.867L25 20l-11-8.133V24.868zM38 25.889V41c0 .552.448 1 1 1h6.5c1.381 0 2.5-1.119 2.5-2.5V18.497L38 25.889zM12 25.889L2 18.497V39.5C2 40.881 3.119 42 4.5 42H11c.552 0 1-.448 1-1V25.889z"/>
+        </svg>
+        Email
+    </a>
+</div>
+<main class="main">
+    <div style="position: relative;">
+        <span class="hello">HELLO</span> 
+        I am a computer scientist with a passion for all things programming.
+        The world of computers and computer science is facinating. From the 
+        multitude of programming languages, and their purposes. To the software that people create
+        using those languages. It is all facinating. The field that I've found
+        most interest in, in recent times, is graph theory. More specifically, graph traversal
+        and pathfinding algorithms, which I created a more education focused 
+        simulation at 
+        <a href="https://github.com/GurkNathe/Pathfinding-Algorithms" target="_blank" rel="noreferrer">this github link</a> 
+        to help myself learn more about them.
+        Outside of my intrest for computer science, I have earned a Bachelor of
+        Science in Computer Science from Central Washington University
+        and have couple years of experience in the field,
+        working on projects mainly relating to web development
+        and data science.
+        <br/><br/>
+        Currently, I am not looking for employment. However, my expertise includes
+        proficiency in a variety of programming languages,
+        database technologies, and development frameworks. So, if you would like to
+        collaborate with me on a project, I'd be more than happy to join in on it. You can contact me 
+        through my <a href="https://www.linkedin.com/in/ethan-krug-5a3088171" target="_blank" rel="noreferrer"> LinkedIn</a> or
+        <a href="mailto:ethan.c.krug@gmail.com" target="_blank" rel="noreferrer">Email</a>, preferably my email,
+        as I will respond faster.
+        <br /><br />
+        Skillwise, I am proficient in Python, JavaScript, C#, and SQL as my day job 
+        mainly uses these languages (if you want to count CSS and HTML, those are in there too). 
+        I have done extensive work with Java, as most of my schooling was written in Java, 
+        but I am by no means an expert in it. Similarily, I have used TypeScript to create websites, 
+        however, I don't know all the ins and outs of the language, but enough to get around. 
+        I have had past experience with C/C++, Google App Scripts, MATLAB, R, Bash/Shell, COBOL, 
+        and a few other languages to a lesser degree, but I am by no means proficient in these 
+        languages, even if I have written thousands of lines of code in them.
+        <br /><br />
+        Some of the tools that I've had extensive work with are mainly two frameworks: React and ASP.NET Core.
+        <br /><br />
+        React is the first real instance of me getting into programming, whether that be as a hobby
+        or as a job. When I came across it, it was a very foreign thing to me, because up until that
+        point, programming was just theoretical and what I had learned and done in school.
+        <br /><br />
+        I want to say, early 2019, I was first introduced to React when my best friend (my roommate at the time)
+        wanted to make a website for some reason. I believe it had to do with our math classes, 
+        but I don't remember the specifics. At the time, though, I wasn't too interested, but that
+        was mainly due to external factors like depression, loneliness, and other personal
+        issues that affected my state of being.
+        <br /><br />
+        Fast forward to late 2019, in my sophmore year of college, I once again come back to React
+        in the form of React Native. Again, my best friend (not my roommate at the time) asked if 
+        I wanted to be a part of a team creating a "study-buddy" app modeled after Tinder.
+        I said yes, and joined the team. The app is called KiwiLink, and it was made for 
+        University of Washington (UW) students so they could find people to study with. One of 
+        the jokes in the group was that we were gonna sell the app to UW and "make our millions", 
+        that obviously didn't happen. This was my first real look at React and a more organized or 
+        commercial use of programming. Development on this app continued for a few months, and
+        we ended up releasing it on the Google Play Store and the Apple App Store, however, it 
+        is no longer being maintained.
+        <br /><br />
+        <img src="thumbup.webp" width="64px" height="48px" style="position: relative; float: left; cursor: pointer;" onclick="playSong()"/>
+        Fast forward again to late 2020, and I have transferred to Central Washington University.
+        This was also the year that COVID started, which was a great time to transfer, what with
+        being at a completely new school, and all the classes being online. Despite that, I did
+        well, and my mental health improved during this period, which is a big plus.
+        <br /><br />
+        After transferring, I picked up React once more in early 2021. 
+        I had a class that was a software development class, specifically focused on the practical 
+        application of the Agile development method. Our team decided on creating a Google Maps-like
+        application for hiking trails in Washington. This was when I started to really like programming,
+        as weird as that may seem, given I was already a CompSci major at that point. I think the 
+        thing that was most satisfy was building parts that would be used multiple times (components)
+        in our application, and seeing everything come together like a LEGO set.
+        <br /><br />
+        In the summer of that year, I was reached out to by my best friend again, and he
+        simply asked if I wanted a job lol. When I said yes, I was reached out to by an 
+        organization called Academics Are Cool that wanted to remake their website.
+        This was what I like to call a big learning experience. It was my first extensive
+        dive into website building, integration of different systems, databases, UX/UI, and a lot more.
+        I worked on this project for the whole summer, and was finished with the user-facing part
+        of the website, so it was essentially functional. I worked on this website on and off after this,
+        only finishing the rest of it in summer of 2022, after I had graduated. One thing I wanted to
+        note for myself is the fact that server-side code is a thing, because I didn't know about that 
+        when I started the website, and I only found out about it after I had completed the website once 
+        I started to actually learn about software development in general. But yeah, this was a 
+        doozy of a project, and it didn't help that the organization basically ghosted me but didn't
+        even use the website I made. At least I got the experience though.
+        <br /><br />
+        Aside from that, I used React for a number of other projects like the previous version of
+        this website and the web version of the Pathfinding Algorithms simulation, also another class where
+        we built a Spotify playlist generator and statistics viewer.
+        <br /><br />
+        Finally, ASP.NET Core, this is what I mainly use at my job. I've created a fair amount of internal
+        websites for the company I work for using the framework. I think it is a pretty solid framework, generally speaking,
+        it's just annoying to get certain things working server-side, and it's made me appreciate
+        non-framework websites so much so that I decided to rewrite my personal website (the website you're currently reading this on)
+        without using a framework or external libraries.
+        <br /><br />
+        Other than these frameworks, I've mainly done theoretical computer science work using Java,
+        and a lot of my work automation and data science related projects, I've used Python to handle them.
+        I've also done some AI projects in Python and Java (moreso in Python), but I haven't gotten too
+        deep in the weeds there. Mainly using tools and libraries like TensorFlow (Python) and Weka (Java) to create
+        models that I've curated data for or used something like Kaggle.
+        <br /><br />
+        That's all for me about programming, but if you want to know more about me as a person, check out my 
+        <a href="#" onclick="route('blog.html')">Blog</a> since I yap about more than just programming.
+    </div>
+</main>
+<script>
+    function route(page) {
+        window.location.href = page;
+    }
+
+    function playSong() {
+        const song = new Audio("funky-town-(low-quality)-made-with-Voicemod-technology.mp3");
+        song.play();
+    }
+</script>
+</body>
+</html>
