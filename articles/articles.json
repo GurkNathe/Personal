@@ -1,5 +1,23 @@
 [
     {
+        "title": "My Journey with React",
+        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/ReactLogo.jpg",
+        "summary": "This is the story about my journey with the JavaScript framework React.js",
+        "contentUrl": "100006",
+        "tags": [
+            "React",
+            "JavaScript",
+            "Life",
+            "Personal Story"
+        ],
+        "timestamp": "2024-09-28T12:25:05",
+        "tempThumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/ReactLogo-c.jpg",
+        "grade_level": [
+            "Standard",
+            10
+        ]
+    },
+    {
         "title": "Autonomous Cars \u2013 A Solution to the Trolley Problem (Opinion)",
         "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/ACTP.png?raw=true",
         "summary": "An opinion piece on how we should solve the autonomous car Trolley Problem. With autonomous cars becoming a thing of reality, we need to know how they should respond in potentially life-ending scenarios. By what standard, if any, should they adhere to, or what standard of morals/ethics?",
@@ -98,7 +116,7 @@
         "contentUrl": "100000",
         "tags": [
             "Philosophy",
-            "Privacy", 
+            "Privacy",
             "Surveillance",
             "Mental Health",
             "Government Corruption"
