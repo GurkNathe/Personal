@@ -1,7 +1,7 @@
 [
     {
         "title": "My Journey with React",
-        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/ReactLogo.jpg",
+        "thumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/ReactLogo.jpg?raw=true",
         "summary": "This is the story about my journey with the JavaScript framework React.js",
         "contentUrl": "100006",
         "tags": [
@@ -11,10 +11,10 @@
             "Personal Story"
         ],
         "timestamp": "2024-09-28T12:25:05",
-        "tempThumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/ReactLogo-c.jpg",
+        "tempThumbnailUrl": "https://github.com/GurkNathe/Personal/blob/main/articles/media/ReactLogo-c.jpg?raw=true",
         "grade_level": [
             "Standard",
-            10
+            12
         ]
     },
     {
